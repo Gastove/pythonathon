@@ -1,0 +1,948 @@
+--#+PROPERTY: header-args:python :session *pythonathon*
+#+PROPERTY: header-args        :exports both :results output
+
+* What Even
+Some of us are born to python, some rise to python, and others have python
+thrust upon 'em. Let's learn you a python.
+
+This document assumes you've seen computer programming before, but tries to be
+kind in how it is paced.
+
+** A note about Abstraction
+In some sense, the two core actions of computer programming are /abstraction/ and
+/naming/. That is: we're going to try and make code that expresses an idea; we
+have to give that code and its constituents clear and meaningful names. This is,
+I think, a tricky idea to get your head all the way around without thorough
+exposure. My intention is that this document will point out some places where we
+abstract ourselves from something so the ideas sink in well.
+
+* Types
+We've briefly covered the notion of a type. Python offers us some foundational
+types to work with:
+
+|---------+----------------------------------------+----------------------|
+| Type    | Specification                          | Example              |
+|---------+----------------------------------------+----------------------|
+| int     | Integer; effectively unlimited size    | 1, 5, 12,487,129,420 |
+| float   | Double-precision floating point number | 0.219, 50.6          |
+| complex | Complex numbers                        | 2i                   |
+| bool    | Boolean                                | True/False           |
+| str     | String                                 | 'cat', 'house boat'  |
+|---------+----------------------------------------+----------------------|
+
+Python is a /strongly, dynamically typed/ language. This means we almost never
+have to care about what the type of a thing is when we declare or receive it,
+but we /cannot/ use types interchangeably in some contexts. For instance:
+
+#+BEGIN_EXAMPLE python
+>>> 2 + 2
+4
+>>> 'cat' + 'dog'
+'catdog'
+>>> 2 + 'dog'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+#+END_EXAMPLE
+
+Between ints, ~+~ means "addition"; between strings, it means "concatenation". But
+between an int and a string, python cannot and will not guess what ~+~ means, and
+throws a type error. We must "cast", changing the type of one operand to match
+the other, so that python knows how to ~+~ everything together correctly:
+
+#+BEGIN_EXAMPLE python
+>>> str(2) + 'dog'
+'2dog'
+#+END_EXAMPLE
+
+* Identifiers
+Ok, so we're going to name things. In python, we name things by giving them an
+/identifier/. A valid identifier in python follows these rules:
+
+1. It can be any combination of upper and lowercase letters, numbers, and the ~_~ character.
+2. It must start with a letter.
+
+So, ~my_swe3t_l33t_IdEnTiFi3r~ is valid (but don't ever do that); ~3rd_item~ is not.
+
+Python usually follows these conventions:
+
+1. Identifiers used for variables are in /snake case/: all lower-case letters with
+   words separated by the underscore character.
+   E.G. ~a_variable_named_foo~
+2. Identifiers for classes are in /title case/: each word with its first letter
+   capitalized, no spaces or underscores.
+   E.G. ~MyFooClass~
+
+* Variables
+Variable assignment is one of the most standard features a programming language
+can have. In python, variable assignment is as simple as can be:
+
+#+BEGIN_SRC python
+x = 5
+print(x)
+#+END_SRC
+
+Put another way: we're binding the /value/ 5 to the /identifier/ x. We can bind any
+value we want to any valid identifier this way.
+
+Now: it's important that you understand that there is a thing called /scope/,
+which affects when and how variables can be accessed. We're going to get to
+[[Scope][scope]] soon, but we need a few more ideas before we can fully explain it.
+
+* Reserved Words
+Before we get too far, there's a thing about Python you should know -- which is
+a thing that's true of many programming languages, so it's useful to be clear
+on. This is the notion of /reserved words/. It goes like this:
+
+When we write code, we express to a computer what we want it to do. The language
+we use to express ourselves is our programming language. That language has some
+syntax, made of words and symbols, that allows us to get our ideas and
+intentions written down. Certain words and symbols are baked in to the language,
+very deeply -- their meaning cannot be changed by us, and we have to respect and
+use these words only in very specific ways.
+
+(/Nota bene/: in python, "reserved words" are typically referred to as "keywords."
+Same idea, slightly different name.)
+
+What this means in practice is that we /cannot use a reserved word as an
+identifier/. For instance:
+
+#+BEGIN_SRC python :eval never :exports code
+  False = 5  # NOPE
+  import = 7 # SUPER NOPE
+#+END_SRC
+
+The python keywords are:
+~False~, ~class~, ~finally~, ~is~, ~return~, ~None~, ~continue~, ~for~, ~lambda~, ~try~, ~True~, ~def~,
+~from~, ~nonlocal~, ~while~, ~and~, ~del~, ~global~, ~not~, ~with~, ~as~, ~elif~, ~if~, ~or~, ~yield~,
+~assert~, ~else~, ~import~, ~pass~, ~break~, ~except~, ~in~, ~raise~
+
+We will get in to what most of these do as we work through this document! Hang
+in there.
+
+* Boolean comparisons
+Let's say we want to make a logical statement about the comparison of two
+values. If we're dealing with numbers, python provides a set of built-in
+operators to help us do precisely this. We can explore this in the python
+interpreter:
+
+#+BEGIN_EXAMPLE python
+>>> 5 < 6
+True
+>>> 1 > 100
+False
+#+END_EXAMPLE
+
+Note our first two keywords: ~True~ and ~False~.
+
+Python also supports greater-than-or-equal to, so:
+#+BEGIN_EXAMPLE python
+>>> 5 >= 9
+False
+>>> 9 >= 9
+True
+#+END_EXAMPLE
+
+Or we can test equality:
+
+#+BEGIN_EXAMPLE python
+>>> 10 == 10
+True
+#+END_EXAMPLE
+
+Common in many languages, exclamation point captures the idea of negation in a
+symbol. So, "not equal" is written:
+
+#+BEGIN_EXAMPLE python
+>>> 4 != 5
+True
+>>> 4 != 4
+False
+#+END_EXAMPLE
+
+Python also provides the keyword ~not~, which, as with ~!~, negates any Boolean
+expression following it:
+
+#+BEGIN_EXAMPLE python
+>>> not True
+False
+>>> not 4 == 5
+True
+#+END_EXAMPLE
+
+Note that python also has nice English keywords for Boolean operators: ~and~ and
+~or~:
+
+#+BEGIN_EXAMPLE python
+>>> False or True
+True
+>>> False and False
+False
+>>> False and True
+False
+>>> True and True
+True
+#+END_EXAMPLE
+
+** Equality versus Identity
+Along with equality operators (e.g. ~==~), python provides an /identity/ operator.
+While extremely useful, the identity operator can also lead to some very subtle
+bugs. This is in part because the identity operator is ~is~, and thus has a much
+more natural language syntax than ~==~. However, observe:
+
+#+BEGIN_EXAMPLE python
+>>> a = 19998989890
+>>> b = 19998989889 + 1
+>>> a == b
+True
+>>> a is b
+False
+#+END_EXAMPLE
+
+/Equality/ compares the /value/ of two things; /identity/ checks to see if two things
+are literally the same object in memory.
+
+As a general rule, ~is~ can always be used to compare with ~True~, ~False~, and ~None~.
+This is because these three values (all keywords, notice) are /singleton objects/
+-- there is only one ~True~ object, ever, period, so equality and identity are
+effectively interchangeable. For more complex kinds of values, it's often better
+to stick to ~==~. Thus:
+
+#+BEGIN_EXAMPLE python
+>>> x = True
+>>> x is True
+True
+>>> x is not False
+True
+>>> y = 10
+>>> y == 10
+True
+#+END_EXAMPLE
+
+** Truthiness
+Python has a broad notion of what we often call "truthiness". That is: certain
+values are /implicitly/ considered to be roughly equivalent to ~True~ or ~False~ when
+used in [[Control Flow]] expressions (we're gonna cover what these are next).
+
+So:
+- Truthy Values are ::
+  - ~True~
+  - Any string with length greater than 0
+  - All numbers
+  - All non-empty collections
+  - Most object instances (we'll get in to what this is in a little bit)
+
+- Falsy Values are ::
+  - ~False~
+  - Empty string
+  - Empty collections
+  - ~None~
+
+* Control Flow
+If we have a notion of Boolean values and truthiness, we can now decide to
+change the way our program works based on some Boolean condition. This is called
+~control flow~, and it is very nice.
+
+The single most common control flow structure is the ~if / else~ block. Python
+elides the common ~else if~ phrase in to ~elif~, for no reason in particular.
+#+BEGIN_SRC python
+  x = 5
+
+  if x > 10:
+      print('X is greater than 10!')
+  elif x == 10:
+      print('X is exactly 10')
+  else:
+      print('X must be less than ten')
+#+END_SRC
+
+#+RESULTS:
+: X must be less than ten
+
+These checks can get quite complex:
+
+#+BEGIN_SRC python :eval never :exports code
+  if x < 5 or y is 'cow':
+      print('woah')
+  elif (x is 5 and y is 5 and z is 5) or skip_the_fives:
+      print('okay double woah')
+  else:
+      print('whew')
+#+END_SRC
+
+A thing to notice: instead of doing an explicit comparison, we can use the
+[[Truthiness]] of a term directly:
+
+#+BEGIN_SRC python
+  if 5:
+      print('it must be 5')
+#+END_SRC
+
+#+RESULTS:
+: it must be 5
+
+Seen slightly less frequently, but still fairly common, is the ~while~ construct,
+which loops "while" some term is truthy:
+
+#+BEGIN_SRC python
+  x = 0
+  while x < 10:
+      print(x)
+      x = x + 1
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+#+end_example
+
+Note two things:
+
+1. If ~x~ weren't mutated, the loop would loop forever.
+2. You can use a ~while~ loop to loop forever, on purpose.
+
+#2 is not uncommonly seen for the "main loop" of a program. That is: if we
+#consider a computer "program" to be a thing that sits idle until some action
+#occurs, then goes back to being idle, we could express that idea like so:
+
+#+BEGIN_EXAMPLE python
+  while True:
+      if check_for_user_input():
+          respond_appropriately()
+#+END_EXAMPLE
+
+* Collections
+A "collection" is, as the name implies, a kind of container or group of Things.
+Python comes with four main collection types built-in; in practice, we use two
+of them vastly more than the others. For every collection, python provides a
+/literal/ syntax, which is a shorthand way of creating a new collection.
+
+*Note*: all collections in python are /zero indexed/. This means that the very first
+ element in a collection is the 0 element, the second is the 1 element, etc.
+ This takes a little getting used to, but is also very common.
+
+Also note: all python collections are /heterogenious/ -- they can contain Things
+of any combination of types, including other collections.
+
+** Tuples
+A tuple is an immutable, and usually small, collection. It is used to group
+together a small number of things we implicitly assert are related to one
+another. The tuple literal is a set of parens ~()~. We access the elements of a
+tuple by their index.
+
+#+BEGIN_SRC python
+  x = ('cat', 'dog', 'phone')
+  print(x[0])
+  print(x[1])
+  print(x[2])
+#+END_SRC
+
+#+RESULTS:
+: cat
+: dog
+: phone
+
+Note a python oddity: to make a single-element tuple, a comma is needed after
+the first element -- e.g. ~('cat',)~.
+
+Tuples have the useful property of being /hashable[fn:1]/.
+** Lists
+A ~list~ is one of the data structures we interact with alllllll the time in
+python. We can make a list with the ~list~ function, but it's more common to do it
+with the list literal, which is a set of square braces ~[]~.
+
+Lists are ordered and mutable. We access the elements of a list by their index.
+
+#+BEGIN_SRC python
+  a_list = [5, False, 'gazpacho']
+
+  print(a_list[2])
+#+END_SRC
+
+#+RESULTS:
+: gazpacho
+
+** Dicts
+A ~dict~ captures the notion of key-value pairs in python; the name is short for
+/dictionary/, which gives us a very good hit about its use. ~Dicts~ offer us /very
+fast/ lookup of elements. There is a ~dict~ function, but we more commonly use the
+curly-brace literal, ~{}~, with the internal format keyname, colon, space, value
+of key (E.G. ~{name_of_key: value}~.)
+
+The key of a ~dict~ can be any /hashable/ type. What types are hashable, you ask?
+Well: any of the primitive types, as well as any class defining the ~__hash__~
+trait. Overwhelmingly, the most common thing to use as the key of a ~dict~ is a
+string. But note: we can also use a ~tuple~, as long as all the elements inside
+are themselves hashable.
+
+We access a list of the keys in a ~dict~ using an instance[fn:2] method called
+~keys()~. We access values by the name of their key. Like so:
+
+#+BEGIN_SRC python
+  the_dict = {'googoo': 'cachoo',
+              'hocus': 'pocus',
+              'Marlon': 'Brando'}
+
+  print(the_dict.keys())
+  print(the_dict['hocus'])
+#+END_SRC
+
+#+RESULTS:
+: ['googoo', 'Marlon', 'hocus']
+: pocus
+
+** Sets
+A set is a very handy data type with a special property: /every element of the
+ set is guaranteed unique/. Sets are, thus, used for uniquing, and for
+ maintaining collections of unique elements. You can use the ~set~ function, or
+ you can use the set literal, which is, slightly confusingly, also curly braces
+ ~{}~. (If there are no colons inside the braces, python knows it's a ~set~, not a
+ ~dict.~)
+
+When you create a set, all of the elements will be uniqued correctly. This is
+done by... wait for it... hashing each element, which means each element in a
+set must be hashable.
+
+#+BEGIN_SRC python
+  list_with_duplicates = [1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 5]
+
+  the_set = set(list_with_duplicates)
+
+  print(the_set)
+#+END_SRC
+
+#+RESULTS:
+: set([1, 2, 3, 4, 5])
+
+For those of you with a math bent, you might be thinking, "I wonder if we can
+take the union, difference, and intersection of Python's sets?" Good news! You
+absolutely can. The interface is exposed as instance methods on a given set.
+
+#+BEGIN_SRC python
+  first_set = {1, 2, 3}
+  second_set = {3, 4, 5}
+
+  # The union of two sets is all the unique elements of both sets together in one
+  print(first_set.union(second_set))
+
+  # The intersection is only those elements found in both sets
+  print(first_set.intersection(second_set))
+
+  # The difference is all the elements from the calling set not found in the
+  # argument set -- in this case, all the elements in first_set not found in
+  # second_set
+  print(first_set.difference(second_set))
+#+END_SRC
+
+#+RESULTS:
+: set([1, 2, 3, 4, 5])
+: set([3])
+: set([1, 2])
+
+* Iteration and Comprehension
+Collections can do a lot of handy things for us. It is, for instance, awfully
+useful to be able to group like units of stuff together. A common example of
+this is a settings file, which can be loaded in to your application as a ~dict~.
+Wanna know the value of a setting? If all your settings are in a ~dict~, you can
+access them by key. Easy peasy.
+
+Another very common use case is the need to take some action of every Thing
+inside a collection. Python supports this through the ~for~ construct, like this:
+
+#+BEGIN_SRC python
+  a_list = [1, 2, 3, 4, 5]
+
+  for number in a_list:
+      print(number * number)
+#+END_SRC
+
+#+RESULTS:
+: 1
+: 4
+: 9
+: 16
+: 25
+
+~number~ is an arbitrary name I chose; you can pick any valid python identifier
+here, so pick something descriptive for what's in your list.
+
+So, how does python know what kinds of things can be used in a ~for~ loop? The
+answer is: much as anything with a ~__hash__~ method is hashable, anything with an
+~__iter__~ method is iterable. (We'll cover this more when we go over [[Pythonisms and "magic methods"][magic
+methods]].) In practice: all of the core python collection types -- [[Tuples][tuples]], [[Lists][lists]],
+[[Dicts][dicts]], and [[Sets][sets]] -- are iterable.
+
+The cagey observer might wonder: /what does it mean to iterate over a dict?/ Great
+question. To control what we get when we iterate over a dict, we have several
+approaches:
+
+#+BEGIN_SRC python :eval never :exports code
+  demo_dict = {'first_key': 'first_value',
+               'second_key': 'second_value',
+               'third_key': 'third_value'}
+
+  # Iterating only the keys can be done two ways:
+  for key in demo_dict.keys():
+      print(key)
+
+  # Iterating over the keys is also the "default" behavior if no method is
+  # called:
+  for key in demo_dict:
+      print(key)
+
+  # But maybe you'd rather iterate over the values!
+  for value in demo_dict.values():
+      print(value)
+
+  # Or maybe you want, wait for it, BOTH AT ONCE:
+  for key, value in demo_dict.items():
+      print('The key: ' + str(key) + ' maps to value: ' + str(value))
+#+END_SRC
+
+This last example uses a technique we haven't talked about called [[Tuple
+Destructuring]], which we will get to Soon™.
+
+One last handy trick: sometimes you want to know the index of each value as you
+iterate. Observe!
+
+#+BEGIN_SRC python
+  a_list = ['cat', 'dog', 'butter']
+
+  tpl = '{} has index {}'
+  for idx, item in enumerate(a_list):
+      strang = tpl.format(item, idx)
+      print(strang)
+#+END_SRC
+
+#+RESULTS:
+: cat has index 0
+: dog has index 1
+: butter has index 2
+
+(I've slipped in an early first example of python's [[String Formatting]] system.
+We'll get in to it more later!)
+
+** List Comprehensions
+
+* Functions
+
+We've got a *ton* to work with so far. Heck -- we could write some pretty complex
+python scripts with just what we've done so far. We've got the notion of storing
+a thing to a variable; we've got the notion of a collection, a group of Things.
+The next item on our agenda is my personal favorite: the function.
+
+Functions are created using the keyword ~def~, like this:
+
+#+BEGIN_SRC python :eval never :exports code
+  def do_nothing():
+      """
+      An optional docstring
+      """
+      pass
+#+END_SRC
+
+So here's a function that... does nothing. (Our next keyword, ~pass~, is the noop
+keyword -- pass means, "just keep on steppin'".) Sure? Check it out: it's time for our
+first real taste of /abstraction/. Say we want to multiply numbers by two, and we
+want to use functions. We could do it like this:
+
+#+BEGIN_SRC python :eval never :exports code
+  def one_times_two():
+      return 1 * 2
+
+  def two_times_two():
+      return 2 * 2
+
+  def three_times_two():
+      return 3 * 2
+
+  def four_times_two():
+      return 4 * 2
+#+END_SRC
+
+Perhaps you can see how quickly this will fall apart. It's functional, but not
+/practical/. We can do better. Let's make our function take an argument:
+
+#+BEGIN_SRC python
+  def times_two(integer):
+      return integer * 2
+#+END_SRC
+
+We now have a function that takes /some argument/ and returns that argument
+multiplied by two. Is this a super trivial example? Well, yes. And: it's also an
+easy demonstration. We are /abstracting/ the notion of multiplying by two. By
+using a function argument, we can now multiply really anything by two! It's a
+small abstraction, but the idea is important -- the function is both a little
+more generic and a little more specialized.
+
+** The ~return~ keyword
+
+Most of the time, a function should be called and the give back some /value/. We
+do this, in most cases, with the ~return~ keyword.[fn:3] We can ~return~ multiple
+times, or not at all. Like so:
+
+#+BEGIN_SRC python
+  def check_out_this_x(x):
+      if x > 500:
+          return 'It is a biggish X'
+      elif x < 250:
+          return 'I guess it could be a kinda big X but probably it is not'
+#+END_SRC
+
+Let's think this through. If X is 600, we'll get back the string "It is a
+biggish X" -- all well and good. If X is, say, 5, we'll get back the second,
+much longer string. And if X is 300? What then?
+
+Answer: we'll get back ~None~. Any function which doesn't specify an explicit
+~return~ returns ~None~.
+
+(Also notice: we didn't specify an ~else~ for our ~if~ block. This is poor form ;-P
+The correct way to write this function would be to explicitly return ~None~ from
+and ~else~).
+
+** Docstrings
+Docstrings are optional, but great. Why are they great? One, using [[http://www.sphinx-doc.org/en/stable/][Sphinx]], you
+can generate very nice online documentation that includes your docstrings. For a
+great example of this, have a look at the documentation for an operations tool
+called [[www.fabfile.org][Fabric]]. Here's a page of [[http://docs.fabfile.org/en/1.13/api/core/context_managers.html][clean, compiled documentation]]; here is the
+[[https://github.com/fabric/fabric/blob/master/fabric/context_managers.py][source code that generated the docs]]. Pretty cool, eh?
+
+The other thing we can do is learn about functions and classes from inside the
+python interpreter. For instance, say you wanna know about the ~len~ function:
+
+#+BEGIN_EXAMPLE python
+>>> help(len)
+Help on built-in function len in module __builtin__:
+
+len(...)
+    len(object) -> integer
+
+    Return the number of items of a sequence or collection.
+#+END_EXAMPLE
+
+Good stuff, eh?
+
+** Default Arguments
+Here's a trick I love: what if you /usually/ want an argument to always have the
+same value, but /sometimes/ you wanna change it?
+
+#+BEGIN_SRC python
+  def usually_multiply_by_two(integer, mult_by=2):
+      return integer * mult_by
+#+END_SRC
+
+This function can be called as ~usually_multiply_by_two(5)~, or it can be called
+with a second argument, which will then be used -- ~usually_multiply_by_two(5, 5)~
+will return 25, not 10.
+
+Now, a thing to pay attention to: if a function has multiple optional arguments,
+you can either specify them positionally, or using the name, but don't do both.
+
+That is:
+
+#+BEGIN_SRC python
+  def multiple_optionals(foo=5, bar=6, baz=10, blep=123):
+      tpl = """
+      I was called with:
+      - foo  = {foo}
+      - bar  = {bar}
+      - baz  = {baz}
+      - blep = {blep}
+      """
+
+      return tpl.format(foo=foo, bar=bar, baz=baz, blep=blep)
+
+  print(multiple_optionals('hi', 'cow'))
+
+  # But, if I only want to change the value of baz:
+
+  print(multiple_optionals(baz='Cowabunga'))
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+
+    I was called with:
+    - foo  = hi
+    - bar  = cow
+    - baz  = 10
+    - blep = 123
+
+
+    I was called with:
+    - foo  = 5
+    - bar  = 6
+    - baz  = Cowabunga
+    - blep = 123
+#+end_example
+
+Also note: it is a syntax error to list optional arguments before required
+arguments in a function:
+
+#+BEGIN_SRC python
+  # Do this:
+  def foo(bar, baz=None):
+      pass
+
+  # Not this! No no no!
+  def foo(baz=None, bar):
+      pass
+#+END_SRC
+
+** ~*args~ and ~**kwargs~
+Especially if you look at really any python documentation, you're gonna see a
+pattern over and over that will throw you off the first few times, like this:
+
+#+BEGIN_SRC python :eval never :exports code
+  def foo(bar, *args, **kwargs):
+      pass
+#+END_SRC
+
+~args~ and ~kwargs~ are a little weird at first, but they do cool things, and unlock
+cool powers. Let's dig in.
+
+Both ~args~ and ~kwargs~ are for times when you aren't sure in advance what aruments
+your function will need to take. ~args~ is used when you aren't sure how many
+arguments there will be; ~kwargs~ is a dict containing any unspecified keyword
+arguments to your function. Let's see this in action:
+
+#+BEGIN_SRC python
+  def so_many_args(foo, bar, baz, *args, **kwargs):
+      tpl = "The {}, the {}, and the {}".format(foo, bar, baz)
+      print(tpl)
+      print(args)
+      print(kwargs)
+
+  so_many_args('this', 'that', 'the other')
+
+  so_many_args('hi', 'hi', 'hi', 'hi', 'hi', 'hi', 'hi!') # so man 'hi's!
+
+  so_many_args('hi', 'hi', 'hi', TheFroz='kazoo', Spork='nugget')
+#+END_SRC
+
+#+RESULTS:
+: The this, the that, and the the other
+: ()
+: {}
+: The hi, the hi, and the hi
+: ('hi', 'hi', 'hi', 'hi!')
+: {}
+: The hi, the hi, and the hi
+: ()
+: {'Spork': 'nugget', 'TheFroz': 'kazoo'}
+
+So our function arguments foo, bar, and baz are assigned the first three values;
+~*args~ winds up with the rest -- thus we see it empty in the first invocation,
+but with four "hi"s in the second. ~**kwargs~ is empty in invocation one and two
+because we have no unexpected named arguments. In invocation three, we have no
+extra positional args, but we do have two spare keyword args.
+
+If we truly don't care how many Things are handed to a function, we could use
+~*args~ on its own and be done with is:
+
+#+BEGIN_SRC python
+  def add_em_up(*nums):
+      res = 0
+      for num in nums:
+          res = res + num
+
+      return res
+
+  print(add_em_up(1, 2, 3, 4, 5, 6, 7, 123))
+#+END_SRC
+
+#+RESULTS:
+: 151
+
+*Plot twist*: I changed the name of ~*args~ to ~*nums~! "args" and "kwargs" are names
+based /purely on convention/. Like any convention, you should both use it most of
+the time /and/ feel free to bend it when it stops making sense.
+
+Back to ~**kwargs~, what about this:
+
+#+BEGIN_SRC python
+  def foo(**kwargs):
+      tpl = '\t-{} with val {}'
+      print('Hello! I was called with:')
+
+      for key, val in kwargs.items():
+          print(tpl.format(key, val))
+
+  foo(panda='panda', another_panda='yep it is another panda')
+#+END_SRC
+
+#+RESULTS:
+: Hello! I was called with:
+:   -another_panda with val yep it is another panda
+:   -panda with val panda
+
+So this is nice and also completely terrible. On the one hand, this is /very/
+powerful -- we can write functions the effects of which we cannot even predict!
+On the other hand: we can write functions the effects of which we cannot even
+predict :/
+
+Think of it another way: argument names to functions are themselves
+documentation. If you encounter a function called
+~save_an_item_to_a_database(item, database)~, you can form a pretty clear
+intuition about what that function /does/. On the other hand, a function called
+~save_an_item_to_a_database(**kwargs)~ is... uh. What... do you give it? Now
+imagine that function has no docstring. Now imagine yourself with a migraine.
+Yeaaaaaaah.
+
+These are good powers, but don't abuse them, yeah?
+
+** A last heckin' sweet use for * and **
+~*~ and ~**~ have a last cool use that kicks in when we use them to call functions.
+~*~ can "explode" a list, turning it in to positional arguments in a function
+call; ~**~ can break apart a dict, matching the keywords inside it to named
+arguments of the function.
+
+Whew, okay, that sounds weird. Let's see it in practice.
+
+First ~*~:
+#+BEGIN_SRC python
+  three_things = ['foo', 'bar', 'baz']
+
+  def print_three_things(first, second, third):
+      print first
+      print second
+      print third
+
+  print_three_things(*three_things)
+#+END_SRC
+
+#+RESULTS:
+: foo
+: bar
+: baz
+
+Each item has been "slotted in" to the function. Oooh!
+
+Now ~**~:
+#+BEGIN_SRC python
+  a_dict = {'foo': 'Hello from the foo!',
+            'bar': 'The bar also says hello!'}
+
+  def print_a_dict(foo='Nope', bar='Also nope'):
+      print(foo)
+      print(bar)
+
+  print_a_dict(**a_dict)
+#+END_SRC
+
+#+RESULTS:
+: Hello from the foo!
+: The bar also says hello!
+
+Say it with me: ooooh! aaaaah!
+
+** Lambdas
+~lambda~ is the python keyword for an /anonymous function/. Effectively, a lambda is
+kind of a magic instant throw-away function. To be honest, this technique isn't
+used super frequently in python outside of python's (somewhat limited)
+functional programming interface, which looks like this:
+
+Say I want to multiply every number in a list by 7. Voila:
+
+#+BEGIN_SRC python
+  the_list = [1, 2, 3, 4, 5]
+
+  res = map(lambda x: x * 7, the_list)
+
+  print(res)
+#+END_SRC
+
+#+RESULTS:
+: [7, 14, 21, 28, 35]
+
+~map~ takes a function and a list, and returns a new list that is the result of
+calling the function on every element of the input list. It is exactly
+equivalent to:
+
+#+BEGIN_SRC python
+  def times_seven(x):
+      return x * 7
+
+  the_list = [1, 2, 3, 4, 5]
+
+  res = [times_seven(i) for i in the_list]
+
+  print(res)
+#+END_SRC
+
+#+RESULTS:
+: [7, 14, 21, 28, 35]
+
+What else are lambdas good for? Well, think a little more about what we just
+saw. We passed a lambda as the first argument to the ~map~ function! Neat! In
+python, functions are "first class" values, meaning they can be used anywhere,
+say, 5 can be used -- we can store a function to a variable, we can pass a
+function to another function as an argument, and we can return a function from a
+function. Here's a slightly less contrived use for a ~lambda~:
+
+#+BEGIN_SRC python
+  def make_dict_formatter(template):
+      return lambda the_dict: template.format(**the_dict)
+
+  one_template = 'The baz: {baz} The blep: {blep}'
+
+  a_dict = {'baz': 'I am the baz!', 'blep': 'I am the blep!'}
+
+  the_formatter = make_dict_formatter(one_template)
+
+  formatted_string = the_formatter(a_dict)
+
+  print(formatted_string)
+#+END_SRC
+
+#+RESULTS:
+: The baz: I am the baz! The blep: I am the blep!
+
+* Scope
+
+
+* Classes
+
+** Inheritance
+
+** Multiple Inheritance
+
+* Exceptions
+
+
+
+* Namespaces, Dependencies, and Imports
+
+* Pythonisms and "magic methods"
+
+* Tuple Destructuring
+
+* String Formatting
+
+* Generators
+
+* Decorators
+
+* Project Structure
+
+* Footnotes
+
+[fn:3] We'll cover the exception to this when we talk about [[Generators]]
+
+[fn:2] We'll cover instance methods in [[Classes]].
+
+[fn:1] A hash function is a function that takes an input of variable length and
+produces an output of fixed length. "Hashability" means that there is a function
+implemented on the ~tuple~ type that lets python compute a hash of that tuple,
+which means the tuple can be used in a variety of special places -- most
+importantly, places where it's important that python be able to tell if a thing
+is unique or not.
