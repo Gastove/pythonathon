@@ -4,7 +4,7 @@
 
 ** DONE List comprehensions
 
-** TODO Namespaces and Imports
+** DONE Namespaces and Imports
 
 ** TODO Decorators
 
@@ -405,8 +405,6 @@ tuple by their index.
 
 Note a python oddity: to make a single-element tuple, a comma is needed after
 the first element -- e.g. ~('cat',)~.
-
-
 
 ** Lists
 A ~list~ is one of the data structures we interact with alllllll the time in
@@ -928,9 +926,9 @@ First ~*~:
   three_things = ['foo', 'bar', 'baz']
 
   def print_three_things(first, second, third):
-      print first
-      print second
-      print third
+      print(first)
+      print(second)
+      print(third)
 
   print_three_things(*three_things)
 #+END_SRC
@@ -1764,6 +1762,40 @@ instance, here's a very very partial list:
 | __call__ | Allows a class instance to be called as a function |
 |----------+----------------------------------------------------|
 
+** Run magics: the "if main" and ~__main__.py~
+
+Imagine you have a directory full of code and you want to run it as a single
+Thing. We can do this with a ~__main__.py~ file, which tells python, "if this
+directory gets given to you to run, here's how to do it." We've actually seen
+this already, in passing, in ~http-demo~. It has a ~__main__.py~ that looks like
+this:
+
+#+BEGIN_SRC sh :dir ~/Code/personal/http-demo
+cat http-demo/__main__.py
+#+END_SRC
+
+#+BEGIN_EXAMPLE python
+#!/usr/bin/env python
+
+import main
+
+main.app.run()
+#+END_EXAMPLE
+
+Our ~__main__.py~ is found by python and is executed; it in turn imports and runs
+the main method of our app.
+
+We can achieve this in scripts using an "if main" statement, which looks like
+this:
+
+#+BEGIN_SRC python :eval never
+  if __name__ == '__main__':
+      do_the_thing()
+#+END_SRC
+
+A statement like that at the bottom of a file tells python how to run that file.
+Neat!
+
 * Generators
 Python has a mechanism you should know about but might not use for a while. The
 mechanism is called /generators/. Let's consider a motivating problem.
@@ -2043,11 +2075,187 @@ tree /tmp/demo
 
 We can now import ~baz~ in to ~one.py~ and ~two.py~.
 
+*** Controlling visibility with ~__init__.py~ files
+
+So: we've got these ~__init__.py~ files all over the place. They tell python a
+module is there; what else? Do they /do/ anything?
+
+It turns out: yes! ~__init__.py~ files control what Things in our modules get
+exposed, and how. Imagine we have a file called ~song.py~ in a directory called
+~song~, and it contains this:
+
+#+BEGIN_SRC python :eval never
+  class Song():
+      def __init__(self, lyrics, score):
+          """
+          I am the singiest song
+          """
+          self.lyrics = lyrics
+          self.score = score
+
+
+  def sing_a_song(song):
+      print(song.lyrics)
+#+END_SRC
+
+If it's in a module with an empty ~__init__.py~, we would import things like this:
+
+#+BEGIN_SRC python :eval never
+from song.song import sing_a_song, Song
+#+END_SRC
+
+Directory name, file name, Thing (function or class) name.
+
+Feels a little redundant, right? We could add this to our ~__init__.py~:
+
+#+BEGIN_SRC python :eval never
+from song import Song, sing_a_song
+#+END_SRC
+
+And now, we could do the import elsewhere like so:
+
+#+BEGIN_SRC python :eval never
+from song import Song, sing_a_song
+#+END_SRC
+
+Shorter! Tidier! Also: optional. But good to know it's there.
+
+** Relative and Absolute Imports
+
+Imagine you have a project shaped a little like this:
+
+#+BEGIN_SRC sh :eval never
+  tree /tmp/demo
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+/tmp/demo
+└── demo
+    ├── __init__.py
+    ├── __main__.py
+    ├── module_one
+    │   ├── __init__.py
+    │   ├── module_three
+    │   │   ├── __init__.py
+    │   │   └── zango.py
+    │   └── scoot.py
+    └── module_two
+        ├── __init__.py
+        ├── groot.py
+        └── poot.py
+
+4 directories, 9 files
+#+end_example
+
+
+What if we want to import code from ~scoot.py~ into ~poot.py~? Python provides two
+approaches you'll encounter: relative imports and absolute imports.
+
+*Absolute imports* are based on where you'll eventually be /running the code from/.
+That is, if we will eventually be running a command in our terminal like ~python
+demo~, then we could think of imports as having ~demo~ as the root, and we import
+from there, like this:
+
+#+BEGIN_SRC python :eval never
+# We are in poot.py
+from demo.module_one import scoot
+#+END_SRC
+
+The other approach you'll see is *relative* imports. These will look very much
+like relative file paths, because in some sense, they are:
+
+#+BEGIN_SRC python :eval never
+# We are in poot.py
+from ../module_two import scoot
+#+END_SRC
+
+My usual habit is this: if I'm importing one module in to the other, I use
+absolute imports. If I'm importing one file within the same module in to
+another, or a submodule in the same dir, I use a relative import. For instance:
+if we are in ~module_one/__init__.py~, our imports could look like this:
+
+#+BEGIN_SRC python :eval never
+import scoot
+import module_three as m3
+from demo.module_two import groot, poot
+#+END_SRC
+
 * Project Structure
 
+Let's have another look at your friend and mine, ~http-demo~:
 
+#+BEGIN_SRC sh :dir ~/Code/personal/http-demo
+tree -L 2
+#+END_SRC
 
+#+RESULTS:
+#+begin_example
+.
+├── README.md
+├── http-demo
+│   ├── __main__.py
+│   ├── __pycache__
+│   ├── config.py
+│   ├── db.py
+│   ├── main.py
+│   ├── main.pyc
+│   ├── schema.py
+│   ├── static
+│   └── templates
+├── httpdemo.db
+├── requirements-dev.in
+├── requirements-dev.txt
+├── requirements.in
+├── requirements.txt
+├── settings.cfg
+├── settings.cfg.template
+└── templates
+    └── hello.html
 
+5 directories, 15 files
+#+end_example
+
+This is a pretty standard python project setup. It has an unusual number of
+requirements.txt files -- a habit of mine, because I like separating things.
+It's also missing a testing dir. The truly prototypical setup would look like
+this:
+
+#+BEGIN_SRC sh :dir ~/Code/personal/http-demo
+tree -L 2
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+.
+├── README.md
+├── http-demo
+│   ├── __main__.py
+│   ├── __pycache__
+│   ├── config.py
+│   ├── db.py
+│   ├── main.py
+│   ├── main.pyc
+│   ├── schema.py
+│   ├── static
+│   └── templates
+├── httpdemo.db
+├── requirements
+│   ├── requirements-dev.in
+│   ├── requirements-dev.txt
+│   ├── requirements.in
+│   └── requirements.txt
+├── settings.cfg
+├── settings.cfg.template
+├── templates
+│   └── hello.html
+└── test
+
+7 directories, 15 files
+#+end_example
+
+Now it has a ~test~ dir at the correct level, and the requirements files are just
+a little tidier, kept together in a dir.
 * Footnotes
 
 [fn:6] The key of a ~dict~ can be any /hashable/ type. What types are hashable, you ask?
