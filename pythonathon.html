@@ -1,0 +1,3166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <!-- 2017-05-16 Tue 20:59 -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <meta name="generator" content="Org mode" />
+    <meta name="author" content="Ross Donaldson" />
+    <style type="text/css">
+      <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+    </style>
+    <script type="text/javascript">
+      /*
+      @licstart  The following is the entire license notice for the
+      JavaScript code in this tag.
+
+      Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+      The JavaScript code in this tag is free software: you can
+      redistribute it and/or modify it under the terms of the GNU
+      General Public License (GNU GPL) as published by the Free Software
+      Foundation, either version 3 of the License, or (at your option)
+      any later version.  The code is distributed WITHOUT ANY WARRANTY;
+      without even the implied warranty of MERCHANTABILITY or FITNESS
+      FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+      As additional permission under GNU GPL version 3 section 7, you
+      may distribute non-source (e.g., minimized or compacted) forms of
+      that code without the copy of the GNU GPL normally required by
+      section 4, provided you include this license notice and a URL
+      through which recipients can access the Corresponding Source.
+
+
+      @licend  The above is the entire license notice
+      for the JavaScript code in this tag.
+      */
+      <!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+    </script>
+  </head>
+  <body>
+    <div id="content">
+
+      <div id="outline-container-orgcf4d2f5" class="outline-2">
+        <h2 id="orgcf4d2f5"><span class="todo TODO">TODO</span> In progress</h2>
+        <div class="outline-text-2" id="text-orgcf4d2f5">
+        </div><div id="outline-container-orge2f5972" class="outline-3">
+          <h3 id="orge2f5972"><span class="done DONE">DONE</span> List comprehensions</h3>
+        </div>
+
+        <div id="outline-container-orgf9750e0" class="outline-3">
+          <h3 id="orgf9750e0"><span class="done DONE">DONE</span> Namespaces and Imports</h3>
+        </div>
+
+        <div id="outline-container-orgccbd307" class="outline-3">
+          <h3 id="orgccbd307"><span class="todo TODO">TODO</span> Decorators</h3>
+        </div>
+
+        <div id="outline-container-org1a370a7" class="outline-3">
+          <h3 id="org1a370a7"><span class="todo TODO">TODO</span> Project Structure</h3>
+        </div>
+      </div>
+
+      <div id="outline-container-org14eb555" class="outline-2">
+        <h2 id="org14eb555">What Even</h2>
+        <div class="outline-text-2" id="text-org14eb555">
+          <p>
+            Some of us are born to python, some rise to python, and others have python
+            thrust upon 'em. Let's learn you a python.
+          </p>
+
+          <p>
+            This document assumes you've seen computer programming before, but tries to be
+            kind in how it is paced. Everything here is for Python 3.
+          </p>
+        </div>
+
+        <div id="outline-container-orgb8a57f2" class="outline-3">
+          <h3 id="orgb8a57f2">A note about Abstraction</h3>
+          <div class="outline-text-3" id="text-orgb8a57f2">
+            <p>
+              In some sense, the two core actions of computer programming are <i>abstraction</i> and
+              <i>naming</i>. That is: we're going to try and make code that expresses an idea; we
+              have to give that code and its constituents clear and meaningful names. This is,
+              I think, a tricky idea to get your head all the way around without thorough
+              exposure. My intention is that this document will point out some places where we
+              abstract ourselves from something so the ideas sink in well.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="outline-container-orgc8a6614" class="outline-2">
+        <h2 id="orgc8a6614">Types</h2>
+        <div class="outline-text-2" id="text-orgc8a6614">
+          <p>
+            We've briefly covered the notion of a type. Python offers us some foundational
+            types to work with:
+          </p>
+
+          <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+            <colgroup>
+              <col  class="org-left" />
+
+              <col  class="org-left" />
+
+              <col  class="org-left" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col" class="org-left">Type</th>
+                <th scope="col" class="org-left">Specification</th>
+                <th scope="col" class="org-left">Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="org-left">int</td>
+                <td class="org-left">Integer; effectively unlimited size</td>
+                <td class="org-left">1, 5, 12,487,129,420</td>
+              </tr>
+
+              <tr>
+                <td class="org-left">float</td>
+                <td class="org-left">Double-precision floating point number</td>
+                <td class="org-left">0.219, 50.6</td>
+              </tr>
+
+              <tr>
+                <td class="org-left">complex</td>
+                <td class="org-left">Complex numbers</td>
+                <td class="org-left">2i</td>
+              </tr>
+
+              <tr>
+                <td class="org-left">bool</td>
+                <td class="org-left">Boolean</td>
+                <td class="org-left">True/False</td>
+              </tr>
+
+              <tr>
+                <td class="org-left">str</td>
+                <td class="org-left">String</td>
+                <td class="org-left">'cat', 'house boat'</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            Python is a <i>strongly, dynamically typed</i> language. This means we almost never
+            have to care about what the type of a thing is when we declare or receive it,
+            but we <i>cannot</i> use types interchangeably in some contexts. For instance:
+          </p>
+
+          <pre class="example">
+            &gt;&gt;&gt; 2 + 2
+            4
+            &gt;&gt;&gt; 'cat' + 'dog'
+            'catdog'
+            &gt;&gt;&gt; 2 + 'dog'
+            Traceback (most recent call last):
+            File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+            TypeError: unsupported operand type(s) for +: 'int' and 'str'
+          </pre>
+
+          <p>
+            Between ints, <code>+</code> means "addition"; between strings, it means "concatenation". But
+            between an int and a string, python cannot and will not guess what <code>+</code> means, and
+            throws a type error. We must "cast", changing the type of one operand to match
+            the other, so that python knows how to <code>+</code> everything together correctly:
+          </p>
+
+          <pre class="example">
+            &gt;&gt;&gt; str(2) + 'dog'
+            '2dog'
+          </pre>
+        </div>
+      </div>
+
+      <div id="outline-container-org04dfeeb" class="outline-2">
+        <h2 id="org04dfeeb">Identifiers</h2>
+        <div class="outline-text-2" id="text-org04dfeeb">
+          <p>
+            Ok, so we're going to name things. In python, we name things by giving them an
+            <i>identifier</i>. A valid identifier in python follows these rules:
+          </p>
+
+          <ol class="org-ol">
+            <li>It can be any combination of upper and lowercase letters, numbers, and the <code>_</code> character.</li>
+            <li>It must start with a letter.</li>
+          </ol>
+
+          <p>
+            So, <code>my_swe3t_l33t_IdEnTiFi3r</code> is valid (but don't ever do that); <code>3rd_item</code> is not.
+          </p>
+
+          <p>
+            Python usually follows these conventions:
+          </p>
+
+          <ol class="org-ol">
+            <li>Identifiers used for variables are in <i>snake case</i>: all lower-case letters with
+              words separated by the underscore character.
+              E.G. <code>a_variable_named_foo</code></li>
+            <li>Identifiers for classes are in <i>title case</i>: each word with its first letter
+              capitalized, no spaces or underscores.
+              E.G. <code>MyFooClass</code></li>
+          </ol>
+        </div>
+      </div>
+
+      <div id="outline-container-orgcaa57e1" class="outline-2">
+        <h2 id="orgcaa57e1">Statements</h2>
+        <div class="outline-text-2" id="text-orgcaa57e1">
+          <p>
+            Python code is made up of <i>statements</i>. A statement can be a whoooole lot of
+            things. A statement might be variable assignment, or creating a function. Simply
+            listing a type or an object <i>isn't</i> a statement.
+          </p>
+
+          <p>
+            So, in an interpreter:
+          </p>
+          <pre class="example">
+            &gt;&gt;&gt; 5     # not a statement
+            5
+            &gt;&gt;&gt; x = 5 # statement
+          </pre>
+        </div>
+      </div>
+
+      <div id="outline-container-orgf394436" class="outline-2">
+        <h2 id="orgf394436">Variables</h2>
+        <div class="outline-text-2" id="text-orgf394436">
+          <p>
+            Variable assignment is one of the most standard features a programming language
+            can have. In python, variable assignment is as simple as can be:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">x = 5
+              print(x)
+            </pre>
+          </div>
+
+          <pre class="example">
+            5
+
+          </pre>
+
+          <p>
+            Put another way: we're binding the <i>value</i> 5 to the <i>identifier</i> x. We can bind any
+            value we want to any valid identifier this way.
+          </p>
+
+          <p>
+            Now: it's important that you understand that there is a thing called <i>scope</i>,
+            which affects when and how variables can be accessed. We're going to get to
+            <a href="#orgbfa0668">scope</a> soon, but we need a few more ideas before we can fully explain it.
+          </p>
+        </div>
+      </div>
+
+      <div id="outline-container-org4580670" class="outline-2">
+        <h2 id="org4580670">Reserved Words</h2>
+        <div class="outline-text-2" id="text-org4580670">
+          <p>
+            Before we get too far, there's a thing about Python you should know &#x2013; which is
+            a thing that's true of many programming languages, so it's useful to be clear
+            on. This is the notion of <i>reserved words</i>. It goes like this:
+          </p>
+
+          <p>
+            When we write code, we express to a computer what we want it to do. The language
+            we use to express ourselves is our programming language. That language has some
+            syntax, made of words and symbols, that allows us to get our ideas and
+            intentions written down. Certain words and symbols are baked in to the language,
+            very deeply &#x2013; their meaning cannot be changed by us, and we have to respect and
+            use these words only in very specific ways.
+          </p>
+
+          <p>
+            (<i>Nota bene</i>: in python, "reserved words" are typically referred to as "keywords."
+            Same idea, slightly different name.)
+          </p>
+
+          <p>
+            What this means in practice is that we <i>cannot use a reserved word as an
+              identifier</i>. For instance:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">False = 5  # NOPE
+              import = 7 # SUPER NOPE
+            </pre>
+          </div>
+
+          <p>
+            The python keywords are:
+            <code>False</code>, <code>class</code>, <code>finally</code>, <code>is</code>, <code>return</code>, <code>None</code>, <code>continue</code>, <code>for</code>, <code>lambda</code>, <code>try</code>, <code>True</code>, <code>def</code>,
+            <code>from</code>, <code>nonlocal</code>, <code>while</code>, <code>and</code>, <code>del</code>, <code>global</code>, <code>not</code>, <code>with</code>, <code>as</code>, <code>elif</code>, <code>if</code>, <code>or</code>, <code>yield</code>,
+            <code>assert</code>, <code>else</code>, <code>import</code>, <code>pass</code>, <code>break</code>, <code>except</code>, <code>in</code>, <code>raise</code>
+          </p>
+
+          <p>
+            We will get in to what most of these do as we work through this document! Hang
+            in there.
+          </p>
+        </div>
+      </div>
+
+      <div id="outline-container-orgcf5ebf8" class="outline-2">
+        <h2 id="orgcf5ebf8">Boolean comparisons</h2>
+        <div class="outline-text-2" id="text-orgcf5ebf8">
+          <p>
+            Let's say we want to make a logical statement about the comparison of two
+            values. If we're dealing with numbers, python provides a set of built-in
+            operators to help us do precisely this. We can explore this in the python
+            interpreter:
+          </p>
+
+          <pre class="example">
+            &gt;&gt;&gt; 5 &lt; 6
+            True
+            &gt;&gt;&gt; 1 &gt; 100
+            False
+          </pre>
+
+          <p>
+            Note our first two keywords: <code>True</code> and <code>False</code>.
+          </p>
+
+          <p>
+            Python also supports greater-than-or-equal to, so:
+          </p>
+          <pre class="example">
+            &gt;&gt;&gt; 5 &gt;= 9
+            False
+            &gt;&gt;&gt; 9 &gt;= 9
+            True
+          </pre>
+
+          <p>
+            Or we can test equality:
+          </p>
+
+          <pre class="example">
+            &gt;&gt;&gt; 10 == 10
+            True
+          </pre>
+
+          <p>
+            Common in many languages, exclamation point captures the idea of negation in a
+            symbol. So, "not equal" is written:
+          </p>
+
+          <pre class="example">
+            &gt;&gt;&gt; 4 != 5
+            True
+            &gt;&gt;&gt; 4 != 4
+            False
+          </pre>
+
+          <p>
+            Python also provides the keyword <code>not</code>, which, as with <code>!</code>, negates any Boolean
+            expression following it:
+          </p>
+
+          <pre class="example">
+            &gt;&gt;&gt; not True
+            False
+            &gt;&gt;&gt; not 4 == 5
+            True
+          </pre>
+
+          <p>
+            Note that python also has nice English keywords for Boolean operators: <code>and</code> and
+            <code>or</code>:
+          </p>
+
+          <pre class="example">
+            &gt;&gt;&gt; False or True
+            True
+            &gt;&gt;&gt; False and False
+            False
+            &gt;&gt;&gt; False and True
+            False
+            &gt;&gt;&gt; True and True
+            True
+          </pre>
+        </div>
+
+        <div id="outline-container-org05b82b8" class="outline-3">
+          <h3 id="org05b82b8">Equality versus Identity</h3>
+          <div class="outline-text-3" id="text-org05b82b8">
+            <p>
+              Along with equality operators (e.g. <code>==</code>), python provides an <i>identity</i> operator.
+              While extremely useful, the identity operator can also lead to some very subtle
+              bugs. This is in part because the identity operator is <code>is</code>, and thus has a much
+              more natural language syntax than <code>==</code>. However, observe:
+            </p>
+
+            <pre class="example">
+              &gt;&gt;&gt; a = 19998989890
+              &gt;&gt;&gt; b = 19998989889 + 1
+              &gt;&gt;&gt; a == b
+              True
+              &gt;&gt;&gt; a is b
+              False
+            </pre>
+
+            <p>
+              <i>Equality</i> compares the <i>value</i> of two things; <i>identity</i> checks to see if two things
+              are literally the same object in memory.
+            </p>
+
+            <p>
+              As a general rule, <code>is</code> can always be used to compare with <code>True</code>, <code>False</code>, and <code>None</code>.
+              This is because these three values (all keywords, notice) are <i>singleton objects</i>
+              &#x2013; there is only one <code>True</code> object, ever, period, so equality and identity are
+              effectively interchangeable. For more complex kinds of values, it's often better
+              to stick to <code>==</code>. Thus:
+            </p>
+
+            <pre class="example">
+              &gt;&gt;&gt; x = True
+              &gt;&gt;&gt; x is True
+              True
+              &gt;&gt;&gt; x is not False
+              True
+              &gt;&gt;&gt; y = 10
+              &gt;&gt;&gt; y == 10
+              True
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="outline-container-org1c4ddd1" class="outline-2">
+        <h2 id="org1c4ddd1">Control Flow</h2>
+        <div class="outline-text-2" id="text-org1c4ddd1">
+          <p>
+            If we have a notion of Boolean values and truthiness, we can now decide to
+            change the way our program works based on some Boolean condition. This is called
+            <code>control flow</code>, and it is very nice.
+          </p>
+
+          <p>
+            The single most common control flow structure is the <code>if / else</code> block. Python
+            elides the common <code>else if</code> phrase in to <code>elif</code>, for no reason in particular.
+          </p>
+          <div class="org-src-container">
+            <pre class="src src-python">x = 5
+
+              if x &gt; 10:
+              print('X is greater than 10!')
+              elif x == 10:
+              print('X is exactly 10')
+              else:
+              print('X must be less than ten')
+            </pre>
+          </div>
+
+          <pre class="example">
+            X must be less than ten
+
+          </pre>
+
+          <p>
+            These checks can get quite complex:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">if x &lt; 5 or y is 'cow':
+              print('woah')
+              elif (x is 5 and y is 5 and z is 5) or skip_the_fives:
+              print('okay double woah')
+              else:
+              print('whew')
+            </pre>
+          </div>
+
+          <p>
+            A thing to notice: instead of doing an explicit comparison, we can use the
+            <a href="#org79ffe11">Truthiness</a> of a term directly:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">if 5:
+              print('it must be 5')
+            </pre>
+          </div>
+
+          <pre class="example">
+            it must be 5
+
+          </pre>
+
+          <p>
+            Seen slightly less frequently, but still fairly common, is the <code>while</code> construct,
+            which loops "while" some term is truthy:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">x = 0
+              while x &lt; 10:
+              print(x)
+              x = x + 1
+            </pre>
+          </div>
+
+          <pre class="example">
+            0
+            1
+            2
+            3
+            4
+            5
+            6
+            7
+            8
+            9
+          </pre>
+
+          <p>
+            Note two things:
+          </p>
+
+          <ol class="org-ol">
+            <li>If <code>x</code> weren't mutated, the loop would loop forever.</li>
+            <li>You can use a <code>while</code> loop to loop forever, on purpose.</li>
+          </ol>
+
+          <p>
+            #2 is not uncommonly seen for the "main loop" of a program. That is: if we
+            #consider a computer "program" to be a thing that sits idle until some action
+            #occurs, then goes back to being idle, we could express that idea like so:
+          </p>
+
+          <pre class="example">
+            while True:
+            if check_for_user_input():
+            respond_appropriately()
+          </pre>
+        </div>
+
+        <div id="outline-container-org79ffe11" class="outline-3">
+          <h3 id="org79ffe11">Truthiness</h3>
+          <div class="outline-text-3" id="text-org79ffe11">
+            <p>
+              Python has a broad notion of what we often call "truthiness". That is: certain
+              values are <i>implicitly</i> considered to be roughly equivalent to <code>True</code> or <code>False</code> when
+              used in control flow expressions.
+            </p>
+
+            <p>
+              So:
+            </p>
+            <dl class="org-dl">
+              <dt>Truthy Values are</dt><dd><ul class="org-ul">
+                  <li><code>True</code></li>
+                  <li>Any string with length greater than 0</li>
+                  <li>All numbers</li>
+                  <li>All non-empty collections</li>
+                  <li>Most object instances (we'll get in to what this is in a little bit)</li>
+              </ul></dd>
+
+              <dt>Falsy Values are</dt><dd><ul class="org-ul">
+                  <li><code>False</code></li>
+                  <li>Empty string</li>
+                  <li>Empty collections</li>
+                  <li><code>None</code></li>
+              </ul></dd>
+            </dl>
+
+            <p>
+              We use them like:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">a_list = []
+
+                if not a_list:
+                print('it is empty!')
+                else:
+                print('it is full')
+              </pre>
+            </div>
+
+            <pre class="example">
+              it is empty!
+
+            </pre>
+
+
+            <p>
+              Or:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">full_string = 'this is a string'
+                empty_string = ''
+
+                if full_string:
+                print('there was some string!')
+
+                if empty_string:
+                print('you should be surprised if this prints')
+              </pre>
+            </div>
+
+            <pre class="example">
+              there was some string!
+
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="outline-container-org9e01adf" class="outline-2">
+        <h2 id="org9e01adf">Collections</h2>
+        <div class="outline-text-2" id="text-org9e01adf">
+          <p>
+            A "collection" is, as the name implies, a kind of container or group of Things.
+            Python comes with four main collection types built-in; in practice, we use two
+            of them vastly more than the others. For every collection, python provides a
+            <i>literal</i> syntax, which is a shorthand way of creating a new collection.
+          </p>
+
+          <p>
+            <b>Note</b>: all collections in python are <i>zero indexed</i>. This means that the very first
+            element in a collection is the 0 element, the second is the 1 element, etc.
+            This takes a little getting used to, but is also very common.
+          </p>
+
+          <p>
+            Also note: all python collections are <i>heterogeneous</i> &#x2013; they can contain Things
+            of any combination of types, including other collections.
+          </p>
+        </div>
+
+        <div id="outline-container-org9dba229" class="outline-3">
+          <h3 id="org9dba229">Tuples</h3>
+          <div class="outline-text-3" id="text-org9dba229">
+            <p>
+              A tuple is an immutable, and usually small, collection. It is used to group
+              together a small number of things we implicitly assert are related to one
+              another. The tuple literal is a set of parens <code>()</code>. We access the elements of a
+              tuple by their index.
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">x = ('cat', 'dog', 'phone')
+                print(x[0])
+                print(x[1])
+                print(x[2])
+              </pre>
+            </div>
+
+            <pre class="example">
+              cat
+              dog
+              phone
+
+            </pre>
+
+            <p>
+              Note a python oddity: to make a single-element tuple, a comma is needed after
+              the first element &#x2013; e.g. <code>('cat',)</code>.
+            </p>
+          </div>
+        </div>
+
+
+
+        <div id="outline-container-orgf87c0ea" class="outline-3">
+          <h3 id="orgf87c0ea">Lists</h3>
+          <div class="outline-text-3" id="text-orgf87c0ea">
+            <p>
+              A <code>list</code> is one of the data structures we interact with alllllll the time in
+              python. We can make a list with the <code>list</code> function, but it's more common to do it
+              with the list literal, which is a set of square braces <code>[]</code>.
+            </p>
+
+            <p>
+              Lists are ordered and mutable. We access the elements of a list by their index.
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">a_list = [5, False, 'gazpacho']
+
+                print(a_list[2])
+              </pre>
+            </div>
+
+            <pre class="example">
+              gazpacho
+
+            </pre>
+          </div>
+        </div>
+
+        <div id="outline-container-orgf968600" class="outline-3">
+          <h3 id="orgf968600">Dicts</h3>
+          <div class="outline-text-3" id="text-orgf968600">
+            <p>
+              A <code>dict</code> captures the notion of key-value pairs in python; the name is short for
+              <i>dictionary</i>, which gives us a very good hit about its use. <code>Dicts</code> offer us <i>very
+                fast</i> lookup of elements. There is a <code>dict</code> function, but we more commonly use the
+              curly-brace literal, <code>{}</code>, with the internal format keyname, colon, space, value
+              of key (E.G. <code>{name_of_key: value}</code>.)
+            </p>
+
+            <p>
+              The key of a <code>dict</code> is typically a string, but sometimes, tuples or integers are
+              used.<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
+            </p>
+
+            <p>
+              We access a list of the keys in a <code>dict</code> using an instance<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup> method called
+              <code>keys()</code>. We access values by the name of their key. Like so:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">the_dict = {'googoo': 'cachoo',
+                'hocus': 'pocus',
+                'Marlon': 'Brando'}
+
+                print(the_dict.keys())
+                print(the_dict['hocus'])
+              </pre>
+            </div>
+
+            <pre class="example">
+              ['googoo', 'Marlon', 'hocus']
+              pocus
+
+            </pre>
+          </div>
+        </div>
+
+        <div id="outline-container-org9169887" class="outline-3">
+          <h3 id="org9169887">Sets</h3>
+          <div class="outline-text-3" id="text-org9169887">
+            <p>
+              A set is a very handy data type with a special property: <i>every element of the
+                set is guaranteed unique</i>. Sets are, thus, used for uniquing, and for
+              maintaining collections of unique elements. You can use the <code>set</code> function, or
+              you can use the set literal, which is, slightly confusingly, also curly braces
+              <code>{}</code>. (If there are no colons inside the braces, python knows it's a <code>set</code>, not a
+              <code>dict.</code>)
+            </p>
+
+            <p>
+              When you create a set, all of the elements will be uniqued correctly. This is
+              done by&#x2026; wait for it&#x2026; hashing each element, which means each element in a
+              set must be hashable.
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">list_with_duplicates = [1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 5]
+
+                the_set = set(list_with_duplicates)
+
+                print(the_set)
+              </pre>
+            </div>
+
+            <pre class="example">
+              set([1, 2, 3, 4, 5])
+
+            </pre>
+
+            <p>
+              For those of you with a math bent, you might be thinking, "I wonder if we can
+              take the union, difference, and intersection of Python's sets?" Good news! You
+              absolutely can. The interface is exposed as instance methods on a given set.
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">first_set = {1, 2, 3}
+                second_set = {3, 4, 5}
+
+                # The union of two sets is all the unique elements of both sets together in one
+                print(first_set.union(second_set))
+
+                # The intersection is only those elements found in both sets
+                print(first_set.intersection(second_set))
+
+                # The difference is all the elements from the calling set not found in the
+                # argument set -- in this case, all the elements in first_set not found in
+                # second_set
+                print(first_set.difference(second_set))
+              </pre>
+            </div>
+
+            <pre class="example">
+              set([1, 2, 3, 4, 5])
+              set([3])
+              set([1, 2])
+
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="outline-container-org0b22fa7" class="outline-2">
+        <h2 id="org0b22fa7">Iteration and Comprehension</h2>
+        <div class="outline-text-2" id="text-org0b22fa7">
+          <p>
+            Collections can do a lot of handy things for us. It is, for instance, awfully
+            useful to be able to group like units of stuff together. A common example of
+            this is a settings file, which can be loaded in to your application as a <code>dict</code>.
+            Wanna know the value of a setting? If all your settings are in a <code>dict</code>, you can
+            access them by key. Easy peasy.
+          </p>
+
+          <p>
+            Another very common use case is the need to take some action of every Thing
+            inside a collection. Python supports this through the <code>for</code> construct, like this:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">a_list = [1, 2, 3, 4, 5]
+
+              for number in a_list:
+              print(number * number)
+            </pre>
+          </div>
+
+          <pre class="example">
+            1
+            4
+            9
+            16
+            25
+
+          </pre>
+
+          <p>
+            <code>number</code> is an arbitrary name I chose; you can pick any valid python identifier
+            here, so pick something descriptive for what's in your list.
+          </p>
+
+          <p>
+            So, how does python know what kinds of things can be used in a <code>for</code> loop? The
+            answer is: much as anything with a <code>__hash__</code> method is hashable, anything with an
+            <code>__iter__</code> method is iterable. (We'll cover this more when we go over <a href="#org0df77bc">magic
+              methods</a>.) In practice: all of the core python collection types &#x2013; <a href="#org9dba229">tuples</a>, <a href="#orgf87c0ea">lists</a>,
+            <a href="#orgf968600">dicts</a>, and <a href="#org9169887">sets</a> &#x2013; are iterable.
+          </p>
+
+          <p>
+            The cagey observer might wonder: <i>what does it mean to iterate over a dict?</i> Great
+            question. To control what we get when we iterate over a dict, we have several
+            approaches:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">demo_dict = {'first_key': 'first_value',
+              'second_key': 'second_value',
+              'third_key': 'third_value'}
+
+              # Iterating only the keys can be done two ways:
+              for key in demo_dict.keys():
+              print(key)
+
+              # Iterating over the keys is also the "default" behavior if no method is
+              # called:
+              for key in demo_dict:
+              print(key)
+
+              # But maybe you'd rather iterate over the values!
+              for value in demo_dict.values():
+              print(value)
+
+              # Or maybe you want, wait for it, BOTH AT ONCE:
+              for key, value in demo_dict.items():
+              print('The key: ' + str(key) + ' maps to value: ' + str(value))
+            </pre>
+          </div>
+
+          <p>
+            This last example uses a technique we haven't talked about called <a href="#org7347e28">Tuple Destructuring</a>, which we will get to Soon™.
+          </p>
+
+          <p>
+            One last handy trick: sometimes you want to know the index of each value as you
+            iterate. Observe!
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">a_list = ['cat', 'dog', 'butter']
+
+              tpl = '{} has index {}'
+              for idx, item in enumerate(a_list):
+              strang = tpl.format(item, idx)
+              print(strang)
+            </pre>
+          </div>
+
+          <pre class="example">
+            cat has index 0
+            dog has index 1
+            butter has index 2
+
+          </pre>
+
+          <p>
+            (I've slipped in an early first example of python's <a href="#orgd0d1b03">String Formatting</a> system.
+            We'll get in to it more later!)
+          </p>
+        </div>
+
+        <div id="outline-container-org704724a" class="outline-3">
+          <h3 id="org704724a">Comprehensions</h3>
+          <div class="outline-text-3" id="text-org704724a">
+            <p>
+              Python has a rich and very powerful faculty called <i>comprehensions</i>, which combine
+              the notion of iteration and collection creation in to a single tidy syntax.
+            </p>
+
+            <p>
+              Consider a contrived example: let's take all the numbers between 0 and 50,
+              square them, and return only those numbers divisible by 2. We'll do this first
+              with a <code>for</code> loop:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">res = []
+
+                for i in range(0, 50):
+                squared = i * i
+                if squared % 2 == 0:
+                res.append(squared)
+
+                print(res)
+              </pre>
+            </div>
+
+            <pre class="example">
+              [0, 4, 16, 36, 64, 100, 144, 196, 256, 324, 400, 484, 576, 676, 784, 900, 1024, 1156, 1296, 1444, 1600, 1764, 1936, 2116, 2304]
+
+            </pre>
+
+            <p>
+              We're using a technique here called an <i>accumulator</i> &#x2013; as we go, when we find a
+              number we want to keep, we keep it by appending it on to <code>res</code>, which we then
+              return.
+            </p>
+
+            <p>
+              Or, we could write it like this:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">print([i * i for i in range(0, 50) if (i * i) % 2 == 0])
+              </pre>
+            </div>
+
+            <pre class="example">
+              [0, 4, 16, 36, 64, 100, 144, 196, 256, 324, 400, 484, 576, 676, 784, 900, 1024, 1156, 1296, 1444, 1600, 1764, 1936, 2116, 2304]
+
+            </pre>
+
+            <p>
+              Blam. Same result, but <i>much</i> shorter. Comprehensions allow us to create a new
+              collection by iterating over any iterable; we can optionally filter as we go.
+            </p>
+
+            <p>
+              We can iterate two things at once:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">print([(x, y) for x in ['a', 'b', 'c'] for y in [1, 2, 3]])
+              </pre>
+            </div>
+
+            <pre class="example">
+              [('a', 1), ('a', 2), ('a', 3), ('b', 1), ('b', 2), ('b', 3), ('c', 1), ('c', 2), ('c', 3)]
+
+            </pre>
+
+            <p>
+              (Note that we generate <i>all combinations</i>, not just <code>[('a', 1), ('b', 2), ('c',
+                3)]</code>)
+            </p>
+
+            <p>
+              There are also comprehensions for other collection types. We can create a dict,
+              from our earlier example, in which the key is the original number and the value
+              is the square:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">print({i : i * i for i in range(0, 50) if i * i % 2 == 0})
+              </pre>
+            </div>
+
+            <pre class="example">
+              {0: 0, 2: 4, 4: 16, 6: 36, 8: 64, 10: 100, 12: 144, 14: 196, 16: 256, 18: 324, 20: 400, 22: 484, 24: 576, 26: 676, 28: 784, 30: 900, 32: 1024, 34: 1156, 36: 1296, 38: 1444, 40: 1600, 42: 1764, 44: 1936, 46: 2116, 48: 2304}
+
+            </pre>
+
+            <p>
+              &lt;3 comprehensions. So good! Do note, however, that as a comprehension grows
+              longer and more complex, it becomes less and less of a good idea. If you find
+              you're packing a <b>lot</b> of logic in to a comprehension, consider switching back to
+              a plain, easy to read for-loop.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="outline-container-org877d006" class="outline-2">
+        <h2 id="org877d006">Functions</h2>
+        <div class="outline-text-2" id="text-org877d006">
+          <p>
+            We've got a <b>ton</b> to work with so far. Heck &#x2013; we could write some pretty complex
+            python scripts with just what we've done so far. We've got the notion of storing
+            a thing to a variable; we've got the notion of a collection, a group of Things.
+            The next item on our agenda is my personal favorite: the function.
+          </p>
+
+          <p>
+            Functions are created using the keyword <code>def</code>, like this:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">def do_nothing():
+              """
+              An optional docstring
+              """
+              pass
+            </pre>
+          </div>
+
+          <p>
+            So here's a function that&#x2026; does nothing. (Our next keyword, <code>pass</code>, is the noop
+            keyword &#x2013; pass means, "just keep on steppin'".) Sure? Check it out: it's time for our
+            first real taste of <i>abstraction</i>. Say we want to multiply numbers by two, and we
+            want to use functions. We could do it like this:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">def one_times_two():
+              return 1 * 2
+
+              def two_times_two():
+              return 2 * 2
+
+              def three_times_two():
+              return 3 * 2
+
+              def four_times_two():
+              return 4 * 2
+            </pre>
+          </div>
+
+          <p>
+            Perhaps you can see how quickly this will fall apart. It's functional, but not
+            <i>practical</i>. We can do better. Let's make our function take an argument:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">def times_two(integer):
+              return integer * 2
+            </pre>
+          </div>
+
+          <p>
+            We now have a function that takes <i>some argument</i> and returns that argument
+            multiplied by two. Is this a super trivial example? Well, yes. And: it's also an
+            easy demonstration. We are <i>abstracting</i> the notion of multiplying by two. By
+            using a function argument, we can now multiply really anything by two! It's a
+            small abstraction, but the idea is important &#x2013; the function is both a little
+            more generic and a little more specialized.
+          </p>
+        </div>
+
+        <div id="outline-container-org518bf7a" class="outline-3">
+          <h3 id="org518bf7a">The <code>return</code> keyword</h3>
+          <div class="outline-text-3" id="text-org518bf7a">
+            <p>
+              Most of the time, a function should be called and the give back some <i>value</i>. We
+              do this, in most cases, with the <code>return</code> keyword.<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup> We can <code>return</code> multiple
+              times, or not at all. Like so:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">def check_out_this_x(x):
+                if x &gt; 500:
+                return 'It is a biggish X'
+                elif x &lt; 250:
+                return 'I guess it could be a kinda big X but probably it is not'
+              </pre>
+            </div>
+
+            <p>
+              Let's think this through. If X is 600, we'll get back the string "It is a
+              biggish X" &#x2013; all well and good. If X is, say, 5, we'll get back the second,
+              much longer string. And if X is 300? What then?
+            </p>
+
+            <p>
+              Answer: we'll get back <code>None</code>. Any function which doesn't specify an explicit
+              <code>return</code> returns <code>None</code>.
+            </p>
+
+            <p>
+              (Also notice: we didn't specify an <code>else</code> for our <code>if</code> block. This is poor form ;-P
+              The correct way to write this function would be to explicitly return <code>None</code> from
+              and <code>else</code>).
+            </p>
+          </div>
+        </div>
+
+        <div id="outline-container-org2f8a11f" class="outline-3">
+          <h3 id="org2f8a11f">Docstrings</h3>
+          <div class="outline-text-3" id="text-org2f8a11f">
+            <p>
+              Docstrings are optional, but great. Why are they great? One, using <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a>, you
+              can generate very nice online documentation that includes your docstrings. For a
+              great example of this, have a look at the documentation for an operations tool
+              called <a href="http://www.fabfile.org">Fabric</a>. Here's a page of <a href="http://docs.fabfile.org/en/1.13/api/core/context_managers.html">clean, compiled documentation</a>; here is the
+              <a href="https://github.com/fabric/fabric/blob/master/fabric/context_managers.py">source code that generated the docs</a>. Pretty cool, eh?
+            </p>
+
+            <p>
+              The other thing we can do is learn about functions and classes from inside the
+              python interpreter. For instance, say you wanna know about the <code>len</code> function:
+            </p>
+
+            <pre class="example">
+              &gt;&gt;&gt; help(len)
+              Help on built-in function len in module __builtin__:
+
+              len(...)
+              len(object) -&gt; integer
+
+              Return the number of items of a sequence or collection.
+            </pre>
+
+            <p>
+              Good stuff, eh?
+            </p>
+          </div>
+        </div>
+
+        <div id="outline-container-org27317f7" class="outline-3">
+          <h3 id="org27317f7">Default Arguments</h3>
+          <div class="outline-text-3" id="text-org27317f7">
+            <p>
+              Here's a trick I love: what if you <i>usually</i> want an argument to always have the
+              same value, but <i>sometimes</i> you wanna change it?
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">def usually_multiply_by_two(integer, mult_by=2):
+                return integer * mult_by
+              </pre>
+            </div>
+
+            <p>
+              This function can be called as <code>usually_multiply_by_two(5)</code>, or it can be called
+              with a second argument, which will then be used &#x2013; <code>usually_multiply_by_two(5, 5)</code>
+              will return 25, not 10.
+            </p>
+
+            <p>
+              Now, a thing to pay attention to: if a function has multiple optional arguments,
+              you can either specify them positionally, or using the name, but don't do both.
+            </p>
+
+            <p>
+              That is:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">def multiple_optionals(foo=5, bar=6, baz=10, blep=123):
+                tpl = """
+                I was called with:
+                - foo  = {foo}
+                - bar  = {bar}
+                - baz  = {baz}
+                - blep = {blep}
+                """
+
+                return tpl.format(foo=foo, bar=bar, baz=baz, blep=blep)
+
+                print(multiple_optionals('hi', 'cow'))
+
+                # But, if I only want to change the value of baz:
+
+                print(multiple_optionals(baz='Cowabunga'))
+              </pre>
+            </div>
+
+            <pre class="example">
+
+              I was called with:
+              - foo  = hi
+              - bar  = cow
+              - baz  = 10
+              - blep = 123
+
+
+              I was called with:
+              - foo  = 5
+              - bar  = 6
+              - baz  = Cowabunga
+              - blep = 123
+
+            </pre>
+
+            <p>
+              Also note: it is a syntax error to list optional arguments before required
+              arguments in a function:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python"># Do this:
+                def foo(bar, baz=None):
+                pass
+
+                # Not this! No no no!
+                def foo(baz=None, bar):
+                pass
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div id="outline-container-org7da9e8f" class="outline-3">
+          <h3 id="org7da9e8f"><code>*args</code> and <code>**kwargs</code></h3>
+          <div class="outline-text-3" id="text-org7da9e8f">
+            <p>
+              Especially if you look at really any python documentation, you're gonna see a
+              pattern over and over that will throw you off the first few times, like this:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">def foo(bar, *args, **kwargs):
+                pass
+              </pre>
+            </div>
+
+            <p>
+              <code>args</code> and <code>kwargs</code> are a little weird at first, but they do cool things, and unlock
+              cool powers. Let's dig in.
+            </p>
+
+            <p>
+              Both <code>args</code> and <code>kwargs</code> are for times when you aren't sure in advance what aruments
+              your function will need to take. <code>args</code> is used when you aren't sure how many
+              arguments there will be; <code>kwargs</code> is a dict containing any unspecified keyword
+              arguments to your function. Let's see this in action:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">def so_many_args(foo, bar, baz, *args, **kwargs):
+                tpl = "The {}, the {}, and the {}".format(foo, bar, baz)
+                print(tpl)
+                print(args)
+                print(kwargs)
+
+                so_many_args('this', 'that', 'the other')
+
+                so_many_args('hi', 'hi', 'hi', 'hi', 'hi', 'hi', 'hi!') # so man 'hi's!
+
+                so_many_args('hi', 'hi', 'hi', TheFroz='kazoo', Spork='nugget')
+              </pre>
+            </div>
+
+            <pre class="example">
+              The this, the that, and the the other
+              ()
+              {}
+              The hi, the hi, and the hi
+              ('hi', 'hi', 'hi', 'hi!')
+              {}
+              The hi, the hi, and the hi
+              ()
+              {'Spork': 'nugget', 'TheFroz': 'kazoo'}
+
+            </pre>
+
+            <p>
+              So our function arguments foo, bar, and baz are assigned the first three values;
+              <code>*args</code> winds up with the rest &#x2013; thus we see it empty in the first invocation,
+              but with four "hi"s in the second. <code>**kwargs</code> is empty in invocation one and two
+              because we have no unexpected named arguments. In invocation three, we have no
+              extra positional args, but we do have two spare keyword args.
+            </p>
+
+            <p>
+              If we truly don't care how many Things are handed to a function, we could use
+              <code>*args</code> on its own and be done with is:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">def add_em_up(*nums):
+                res = 0
+                for num in nums:
+                res = res + num
+
+                return res
+
+                print(add_em_up(1, 2, 3, 4, 5, 6, 7, 123))
+              </pre>
+            </div>
+
+            <pre class="example">
+              151
+
+            </pre>
+
+            <p>
+              <b>Plot twist</b>: I changed the name of <code>*args</code> to <code>*nums</code>! "args" and "kwargs" are names
+              based <i>purely on convention</i>. Like any convention, you should both use it most of
+              the time <i>and</i> feel free to bend it when it stops making sense.
+            </p>
+
+            <p>
+              Back to <code>**kwargs</code>, what about this:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">def foo(**kwargs):
+                tpl = '\t-{} with val {}'
+                print('Hello! I was called with:')
+
+                for key, val in kwargs.items():
+                print(tpl.format(key, val))
+
+                foo(panda='panda', another_panda='yep it is another panda')
+              </pre>
+            </div>
+
+            <pre class="example">
+              Hello! I was called with:
+              -another_panda with val yep it is another panda
+              -panda with val panda
+
+            </pre>
+
+            <p>
+              So this is nice and also completely terrible. On the one hand, this is <i>very</i>
+              powerful &#x2013; we can write functions the effects of which we cannot even predict!
+              On the other hand: we can write functions the effects of which we cannot even
+              predict :/
+            </p>
+
+            <p>
+              Think of it another way: argument names to functions are themselves
+              documentation. If you encounter a function called
+              <code>save_an_item_to_a_database(item, database)</code>, you can form a pretty clear
+              intuition about what that function <i>does</i>. On the other hand, a function called
+              <code>save_an_item_to_a_database(**kwargs)</code> is&#x2026; uh. What&#x2026; do you give it? Now
+              imagine that function has no docstring. Now imagine yourself with a migraine.
+              Yeaaaaaaah.
+            </p>
+
+            <p>
+              These are good powers, but don't abuse them, yeah?
+            </p>
+          </div>
+        </div>
+
+        <div id="outline-container-org2600ed9" class="outline-3">
+          <h3 id="org2600ed9">A last heckin' sweet use for * and **</h3>
+          <div class="outline-text-3" id="text-org2600ed9">
+            <p>
+              <code>*</code> and <code>**</code> have a last cool use that kicks in when we use them to call functions.
+              <code>*</code> can "explode" a list, turning it in to positional arguments in a function
+              call; <code>**</code> can break apart a dict, matching the keywords inside it to named
+              arguments of the function.
+            </p>
+
+            <p>
+              Whew, okay, that sounds weird. Let's see it in practice.
+            </p>
+
+            <p>
+              First <code>*</code>:
+            </p>
+            <div class="org-src-container">
+              <pre class="src src-python">three_things = ['foo', 'bar', 'baz']
+
+                def print_three_things(first, second, third):
+                print first
+                print second
+                print third
+
+                print_three_things(*three_things)
+              </pre>
+            </div>
+
+            <pre class="example">
+              foo
+              bar
+              baz
+
+            </pre>
+
+            <p>
+              Each item has been "slotted in" to the function. Oooh!
+            </p>
+
+            <p>
+              Now <code>**</code>:
+            </p>
+            <div class="org-src-container">
+              <pre class="src src-python">a_dict = {'foo': 'Hello from the foo!',
+                'bar': 'The bar also says hello!'}
+
+                def print_a_dict(foo='Nope', bar='Also nope'):
+                print(foo)
+                print(bar)
+
+                print_a_dict(**a_dict)
+              </pre>
+            </div>
+
+            <pre class="example">
+              Hello from the foo!
+              The bar also says hello!
+
+            </pre>
+
+            <p>
+              Say it with me: ooooh! aaaaah!
+            </p>
+          </div>
+        </div>
+
+        <div id="outline-container-org6cd780b" class="outline-3">
+          <h3 id="org6cd780b">Lambdas</h3>
+          <div class="outline-text-3" id="text-org6cd780b">
+            <p>
+              <code>lambda</code> is the python keyword for an <i>anonymous function</i>. Effectively, a lambda is
+              kind of a magic instant throw-away function. To be honest, this technique isn't
+              used super frequently in python outside of python's (somewhat limited)
+              functional programming interface, which looks like this:
+            </p>
+
+            <p>
+              Say I want to multiply every number in a list by 7. Voila:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">the_list = [1, 2, 3, 4, 5]
+
+                res = map(lambda x: x * 7, the_list)
+
+                print(res)
+              </pre>
+            </div>
+
+            <pre class="example">
+              [7, 14, 21, 28, 35]
+
+            </pre>
+
+            <p>
+              <code>map</code> takes a function and a list, and returns a new list that is the result of
+              calling the function on every element of the input list. It is exactly
+              equivalent to:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">def times_seven(x):
+                return x * 7
+
+                the_list = [1, 2, 3, 4, 5]
+
+                res = [times_seven(i) for i in the_list]
+
+                print(res)
+              </pre>
+            </div>
+
+            <pre class="example">
+              [7, 14, 21, 28, 35]
+
+            </pre>
+
+            <p>
+              Note that our <code>lambda</code> implicitly returns &#x2013; we don't use the <code>return</code> keyword.
+            </p>
+
+            <p>
+              What else are lambdas good for? Well, think a little more about what we just
+              saw. We passed a lambda as the first argument to the <code>map</code> function! Neat! In
+              python, functions are "first class" values, meaning they can be used anywhere,
+              say, 5 can be used &#x2013; we can store a function to a variable, we can pass a
+              function to another function as an argument, and we can return a function from a
+              function. Here's a slightly less contrived use for a <code>lambda</code> using python's
+              <a href="#orgd0d1b03">String Formatting</a> system. We'll talk about it more in depth in a bit, but here's
+              the salient points:
+            </p>
+
+            <ul class="org-ul">
+              <li>Curly braces in a string get replaced by arguments to <code>String.format</code></li>
+              <li>If there's a name inside the curly brace, it becomes a keyword arg &#x2013; e.g., <code>Hi
+                  there, {name}</code> should be called with <code>format(name='Bartholomew')</code>.</li>
+            </ul>
+
+            <div class="org-src-container">
+              <pre class="src src-python">def make_dict_formatter(template):
+                return lambda the_dict: template.format(**the_dict)
+
+                one_template = 'The baz: {baz} The blep: {blep}'
+
+                a_dict = {'baz': 'I am the baz!', 'blep': 'I am the blep!'}
+
+                the_formatter = make_dict_formatter(one_template)
+
+                formatted_string = the_formatter(a_dict)
+
+                print(formatted_string)
+              </pre>
+            </div>
+
+            <pre class="example">
+              The baz: I am the baz! The blep: I am the blep!
+
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="outline-container-orgbfa0668" class="outline-2">
+        <h2 id="orgbfa0668">Scope</h2>
+        <div class="outline-text-2" id="text-orgbfa0668">
+          <p>
+            There's a little bit of a subtle shenanigan going on in our <code>make_dict_formatter</code>
+            example; let's dig in to that. To get our heads around it, though, we need to
+            understand the idea of <i>scope</i>. Let's consider:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">assertion = 'Cats are mortal, Aristotle was mortal, therefore Aristotle was a cat.'
+
+              def how_about():
+              print(assertion)
+
+
+              how_about()
+
+
+              def but_then():
+              assertion = 'That whole Aristotle-cat thing is a syllogism.'
+              correctly = "Cats are mortal, Aristotle was mortal, go home syllogisms, you're drunk."
+              print(assertion)
+
+
+              but_then()
+              print(assertion)
+              print(correctly)
+            </pre>
+          </div>
+
+          <p>
+            So, we start with an assertion. We call <code>how_about</code>. What happens?
+          </p>
+
+          <p>
+            Next, we define a function <code>but_then</code> that <i>also</i> defines an <code>assertion</code>. What value
+            does it print?
+          </p>
+
+          <p>
+            Finally, we attempt to print the value of <code>correctly</code>. What happens?
+          </p>
+
+          <p>
+            What we're dealing with here is the question of <i>scope</i>, which is to say, "when
+            does One Thing in a programming language have access to a particular set of
+            variables and when doesn't it?" There is a <i>lot</i> more to say on this topic than we
+            have time for. We're going to spend like four sentences on the theory behind
+            what's going on, and then we're going straight to the pragmatics.
+          </p>
+
+          <p>
+            What's happening here on a theoretical level goes like this: python is
+            <i>statically scoped</i> (this is the most "normal" kind of scoping you can have if you
+            are a modern programming language). Further, it has <i>lexical</i> scope.
+          </p>
+
+          <dl class="org-dl">
+            <dt>Static scope</dt><dd>as opposed to <i>dynamic</i> scope. In a statically scoped program,
+              we know the values of our symbols at compile/interpretation
+              time. In a <i>dynamically</i> scoped language, we don't know until
+              <i>runtime</i>. (Note that this is <b>not</b> the same thing as, though it
+              is analogous to, python being dynamically <i>typed</i>.)</dd>
+            <dt>Lexical scope</dt><dd>a subset of static scope, lexical scoping means that we have
+              certain kinds of semantic blocks of code which create their
+              own scope. The most important, and most common, example of
+              this is functions, which always create their own scope, but
+              which also always <i>inherit from the parent scope</i>.</dd>
+          </dl>
+
+          <p>
+            Whew. Okay. Let's do that again, but in a much more pragmatic way:
+          </p>
+
+          <p>
+            First, we define <code>assertion</code>. <code>assertion</code> is in our "global" scope &#x2013; it is at the
+            "top level" of the code snippet. It isn't inside a function or any other kind of
+            lexical block &#x2013; it's just <i>there</i>.
+          </p>
+
+          <p>
+            Next, we define <code>how_about</code>. <code>how_about</code> creates a new scope, but it inherits from
+            the parent scope &#x2013; so it has access to our "global" <code>assertion</code>. Great.
+          </p>
+
+          <p>
+            Now we define <code>but_then</code>. <code>but_then</code> <i>also</i> defines an <code>assertion</code>, and its <code>assertion</code>
+            "wins", seamlessly overwriting the "global" value, but <i>only inside the function
+              block</i>. We confirm this by calling <code>but_then</code>, and then immediately checking the
+            value of <code>assertion</code>.
+          </p>
+
+          <p>
+            Finally, we attempt to access the value of <code>correctly</code> from inside the <code>but_then</code>
+            function. We get an error, because the inheritance of scope goes one-way &#x2013;
+            <code>but_then</code> inherits the parent scope, but the parent scope is unaltered.
+          </p>
+
+          <p>
+            Scope is a subtle, but important point &#x2013; it allows us to do things like safely
+            re-use common variable names inside functions, and to not have our functions
+            "leak", mutating the world outside of their intended purview.
+          </p>
+        </div>
+
+        <div id="outline-container-org9d84687" class="outline-3">
+          <h3 id="org9d84687">Closures</h3>
+          <div class="outline-text-3" id="text-org9d84687">
+            <p>
+              So, what's going on with our <code>make_dict_formatter</code> function? We're using scope to
+              our advantage with a technique called a <i>closure</i>. <code>template</code> is an argument to the
+              parent <code>make_dict_formatter</code> function; it is then available inside the body of a
+              new function. Here &#x2013; it might be easier to see like this:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">def make_dict_formatter(template):
+                def formatter(the_dict):
+                return template.format(**the_dict)
+
+                return formatter
+              </pre>
+            </div>
+
+            <p>
+              We open a new scope with <code>make_dict_formatter</code>, then we open <i>another</i> new scope
+              with our inner function <code>formatter</code> (a lambda behaves identically, but never
+              receives a name). The <code>formatter</code> function has access to <code>template</code> from its parent
+              scope, but the <code>template</code> variable never leaks &#x2013; we have provided a private
+              configuration to a function.
+            </p>
+          </div>
+        </div>
+
+        <div id="outline-container-org80da87e" class="outline-3">
+          <h3 id="org80da87e"><code>global</code></h3>
+          <div class="outline-text-3" id="text-org80da87e">
+            <p>
+              Now, back to our <code>assertion</code> example. Sometimes, it <i>can</i> be handy to modify global
+              state from inside a function. To this end, python provides the <code>global</code> keyword.
+              We use it like this:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">a_global = 'shazango'
+
+                def change_global(new_val):
+                global a_global
+                a_global = new_val
+
+
+                print(a_global)
+                change_global('woopwoop')
+                print(a_global)
+              </pre>
+            </div>
+
+            <pre class="example">
+              shazango
+              woopwoop
+
+            </pre>
+
+            <p>
+              Inside our function, we tell python, "we don't want to create a new local
+              variable, we want the same variable we inherited from the main scope." Pow.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="outline-container-orge5b3fda" class="outline-2">
+        <h2 id="orge5b3fda">Classes</h2>
+        <div class="outline-text-2" id="text-orge5b3fda">
+          <p>
+            Functions are how me model actions &#x2013; verbs, if you will &#x2013; in programming.
+            Classes, then, are how we model nouns. Yes, there are gray areas &#x2013; nouns can
+            sometimes take actions &#x2013; but as we'll see, they do that by having access to
+            their own functions (verbs).
+          </p>
+
+          <p>
+            To really grok classes, we need to take a moment to understand <i>instances</i>. If a
+            class models a noun, an <i>instance</i> represents an actual one of that noun. So for
+            example: there is a class called <code>Dict</code>. When we make a dict using <code>{}</code> syntax, we
+            are <i>instantiating</i> a new <i>instance</i> of the <code>Dict</code> class. The <code>Dict</code> class is <i>general</i>,
+            the pattern on which all dicts are based; our instance is specific. We create
+            instances either using normal-looking functions (as with the <code>dict()</code> method), or
+            using a specialized kind of function called a <i>constructor</i>. Using a constructor
+            looks like this:
+          </p>
+
+          <pre class="example">
+            foo = Foo()
+          </pre>
+
+          <p>
+            To define a new class in python we use &#x2013; wait for it &#x2013; the <code>class</code> keyword:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">class Fruit():
+              """
+              I am a model of a fruit!
+              """
+
+              carbon_based = True
+
+              def __init__(self, name, taste, color, climate):
+              """
+              The constructor of new fruit!
+              """
+              self.name = name
+              self.taste = taste
+              self.color = color
+              self.climate = climate
+
+              def which(self):
+              """
+              I will print the name of this fruit!
+              """
+              print('I am a {}!'.format(self.name))
+            </pre>
+          </div>
+
+          <p>
+            Let's take this a piece at a time. First, we declare our class and give it a
+            name. By python convention, our class name will be in TitleCase &#x2013; in this
+            instance, <code>Fruit</code>. The open-and-close parens following the name deal with
+            <a href="#orge0cbe71">Inheritance</a>, which we'll get to next &#x2013; for now, just note we aren't inheriting
+            anything here.
+          </p>
+
+          <p>
+            Next, we can, optionally, provide a docstring (always a good idea). And now: as
+            many statements as we feel like making. We'll make three &#x2013; our assignment of
+            <code>carbon_based</code> and two functions. <b>Terminology alert</b>: when a function belongs to a
+            class, we call it a <i>method</i>.
+          </p>
+
+          <p>
+            Before we go much further, it'll help to see this in action:
+          </p>
+
+          <pre class="example">
+            &gt;&gt;&gt; banana = Fruit('banana', 'awful', 'yellow', 'somewhere too hot')
+            &gt;&gt;&gt; banana.carbon_based
+            True
+            &gt;&gt;&gt; banana.taste
+            'awful'
+            &gt;&gt;&gt; banana.which()
+            I am a banana!
+          </pre>
+
+          <p>
+            So: we instantiate a new <code>Fruit</code> by calling its constructor, which is called&#x2026;
+            <code>Fruit()</code>. We give it arguments, which become part of our class instance (we'll
+            explore the mechanism for this in just a moment, hang in there.)
+          </p>
+
+          <p>
+            From here, we can see that our statements have become part of our class
+            instance. <code>carbon_based</code> is, as we'd expect, set to <code>True</code>. We set properties like
+            <code>self.taste</code>, and now we can access them. We also have access to the <code>which</code> method,
+            which tells us our instance is a banana. Great.
+          </p>
+        </div>
+
+        <div id="outline-container-orgfe511e4" class="outline-3">
+          <h3 id="orgfe511e4">Static vs. Instance</h3>
+          <div class="outline-text-3" id="text-orgfe511e4">
+            <p>
+              Now lets look at something:
+            </p>
+
+            <pre class="example">
+              &gt;&gt;&gt; Fruit.carbon_based
+              True
+              &gt;&gt;&gt; Fruit.name
+              Traceback (most recent call last):
+              File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+              AttributeError: class Fruit has no attribute 'name'
+            </pre>
+
+            <p>
+              When we use the <code>Fruit</code> class directly, we can access the <code>carbon_based</code> property,
+              but <i>not</i> the <code>name</code> property. What do?
+            </p>
+
+            <p>
+              The answer is in the difference between <i>static</i> and <i>instance</i> properties.
+              <code>carbon_based = True</code> is a statement we make at the class level, and it becomes a
+              <i>static</i> property of the class &#x2013; which means we can access it directly on the
+              class definition. On the other hand, <code>name</code> is only assigned when we create an
+              instance, and is thus not available on the class. We'll see a similar, but
+              slightly more confusing, error if we try to call the <code>which</code> method on the class:
+            </p>
+
+            <pre class="example">
+              &gt;&gt;&gt; Fruit.which()
+              Traceback (most recent call last):
+              File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+              TypeError: unbound method which() must be called with Fruit instance as first argument (got nothing instead)
+            </pre>
+
+            <p>
+              Note that the function signature of both <code>__init__</code> and <code>which</code> begin with the
+              keyword <code>self</code>. <code>self</code> is a reference to the current instance, and in python, an
+              instance method is defined by taking a <code>self</code> reference as its first argument.
+            </p>
+
+            <p>
+              Which brings us to: our constructor, <code>__init__</code>!
+            </p>
+          </div>
+        </div>
+
+        <div id="outline-container-orgbe1b0f2" class="outline-3">
+          <h3 id="orgbe1b0f2">Constructors</h3>
+          <div class="outline-text-3" id="text-orgbe1b0f2">
+            <p>
+              <code>__init__</code> is a python "magic method"; it identifies a special kind of function
+              called a <i>constructor</i>. Constructors are used to create class instances. So, when
+              we define an <code>__init__</code> method on a class, we have the power to specify exactly
+              how that class gets created. Are properties set? Methods called? Songs sung?
+              Only we get to say.
+            </p>
+
+            <p>
+              An <code>__init__</code> method can do anything to the <code>self</code> reference it wants to, but do be
+              wary that <i>you are still creating the object</i>. For instance, this will asplode:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">class OhNo():
+                def __init__(self):
+                self.beep = self.boop()
+
+                def boop(self):
+                return self.beep
+              </pre>
+            </div>
+
+            <pre class="example">
+              &gt;&gt;&gt; uh_oh = OhNo()
+              Traceback (most recent call last):
+              File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+              File "/Users/gastove/Code/pythonathon/pythonathon.org[*Org Src pythonathon.org[ python ]*]", line 3, in __init__
+              File "/Users/gastove/Code/pythonathon/pythonathon.org[*Org Src pythonathon.org[ python ]*]", line 6, in boop
+              AttributeError: OhNo instance has no attribute 'beep'
+            </pre>
+
+            <p>
+              We reference <code>self.beep</code> before it is given a value! Sad day.
+            </p>
+          </div>
+        </div>
+
+        <div id="outline-container-orge0cbe71" class="outline-3">
+          <h3 id="orge0cbe71">Inheritance</h3>
+          <div class="outline-text-3" id="text-orge0cbe71">
+            <p>
+              "Inheritance" is a common design pattern in modern object oriented languages. It
+              can be single or multiple; python is the latter, and we'll explore the
+              ramifications of that <a href="#org55cea46">next</a>.
+            </p>
+
+            <p>
+              Inheritance works like this:
+            </p>
+
+            <p>
+              Imagine we're trying to create classes to model different kinds of vehicles. We
+              could do it a buuuunch of different ways. Here's one:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">class Car():
+                wheels = 4
+                has_engine = True
+
+                def __init__(self, top_speed):
+                self.top_speed = top_speed
+
+
+                class Motorcycle():
+                wheels = 2
+                has_engine = True
+
+                def __init__(self, top_speed):
+                self.top_speed = top_speed
+
+
+                class Bicycle():
+                wheels = 2
+                has_engine = False
+
+                def __init__(self, top_speed):
+                self.top_speed = top_speed
+              </pre>
+            </div>
+
+            <p>
+              Hopefully, this smells a little funny to you. We're repeating ourselves a
+              looooooot. Everything has the same init method! Properties are repeated! Erg.
+              You know what we need? A way to abstract over the idea of a set of nouns in a
+              hierarchy with shared properties.
+            </p>
+
+            <p>
+              Behold, inheritance:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">class Vehicle():
+                wheels = 0
+                has_engine = True
+
+                def __init__(self, top_speed):
+                self.top_speed = top_speed
+
+
+                class Car(Vehicle):
+                wheels = 4
+
+
+                class TwoWheeledVehicle(Vehicle):
+                wheels = 2
+
+
+                class Motorcycle(TwoWheeledVehicle):
+                pass
+
+
+                class Bicycle(TwoWheeledVehicle):
+                has_engine = False
+
+              </pre>
+            </div>
+
+            <p>
+              Woooooooah. What even is this. Let's investigate:
+            </p>
+
+            <p>
+              First we define a base <code>Vehicle</code>, which captures all the ideas we need to describe
+              A Vehicle. Next, we define a <code>Car</code> &#x2013; the syntax <code>Car(Vehicle)</code> means that <code>Car</code> is
+              <i>inheriting</i> from <code>Vehicle</code>. (This is often called an "is-a" relationship &#x2013; <code>Car</code>
+              is-a <code>Vehicle</code>.<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>)
+            </p>
+
+            <p>
+              In our <code>Car</code> class, <i>all we do is specify the number of wheels</i>. Everything else is
+              inherited from the parent, or <i>base</i>, class, including all methods. When we go to
+              create a car, the <code>__init__</code> method from <code>Vehicle</code> will be called. Neat, eh?
+            </p>
+
+            <p>
+              Now we derive a class for <code>TwoWheeledVehicle</code>, and we derive two variants of it. A
+              <code>Motorcycle</code> doesn't need to change anything at all &#x2013; two wheels, has engine, an
+              init from the base class &#x2013; <code>Motorcycle</code> is all set. <code>Bicycle</code> just needs to set
+              <code>has_engine</code> to <code>False</code>.
+            </p>
+
+            <p>
+              <i>Boom</i>.
+            </p>
+          </div>
+        </div>
+
+        <div id="outline-container-org55cea46" class="outline-3">
+          <h3 id="org55cea46">Multiple Inheritance</h3>
+          <div class="outline-text-3" id="text-org55cea46">
+            <p>
+              Python technically supports a property called "multiple inheritance." Mostly,
+              this is very bad news, because it can be <i>very</i> confusing. You've already seen
+              this in action, in our <code>http-demo</code>:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">Base = declarative_base()
+
+
+                class IdPrimaryKeyMixin(object):
+                id = Column(Integer, primary_key=True)
+
+
+                class DateTimeMixin(object):
+                created_on = Column(DateTime, default=datetime.now)
+                updated_on = Column(DateTime, default=datetime.now, onupdate=datetime.now)
+
+
+                class Person(Base, IdPrimaryKeyMixin, DateTimeMixin):
+                __tablename__ = 'people'
+
+                first_name = Column(String(20), nullable=False)
+                last_name = Column(String(30), nullable=False)
+
+                def __repr__(self):
+                tpl = 'Person&lt;id: {id}, {first_name} {last_name}&gt;'
+                formatted = tpl.format(id=self.id, first_name=self.first_name,
+                last_name=self.last_name)
+
+                return formatted
+              </pre>
+            </div>
+
+            <p>
+              Note: in Python 2, we had to explicitly inherit from <code>object</code> in order to make a
+              correct, new object &#x2013; in Python 3, we don't have to do this.
+            </p>
+
+            <p>
+              So &#x2013; we make a set of classes labeled as <code>Mixins</code>, because you'd never
+              instantiate them directly &#x2013; they're only useful to add Extra Properties to
+              another class.<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup> Now, the <code>Person</code> class has an <code>id</code> property and both
+              <code>created_on</code> and <code>updated_on</code> properties &#x2013; clean and tidy.
+            </p>
+
+            <p>
+              This can get really weird:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">class Beep():
+                def sound(self):
+                return self.beep
+
+
+                class BeepPrinter():
+                def print_beep(self):
+                return 'I go: ' + self.sound()
+
+
+                class BeepBooper(Beep, BeepPrinter):
+                def oh_no(self):
+                print(self.print_beep())
+              </pre>
+            </div>
+
+            <pre class="example">
+              &gt;&gt;&gt; b = BeepBooper()
+              &gt;&gt;&gt; b.oh_no()
+              Traceback (most recent call last):
+              File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+              File "/Users/gastove/Code/pythonathon/pythonathon.org[*Org Src pythonathon.org[ python ]*]", line 13, in oh_no
+              File "/Users/gastove/Code/pythonathon/pythonathon.org[*Org Src pythonathon.org[ python ]*]", line 8, in print_beep
+              File "/Users/gastove/Code/pythonathon/pythonathon.org[*Org Src pythonathon.org[ python ]*]", line 3, in sound
+              AttributeError: BeepBooper instance has no attribute 'beep'
+            </pre>
+
+            <p>
+              In this example, the bug is that none of the three classes define a <code>beep</code>
+              property. But which one should? Where is the bug? As the class hierarchy grows
+              larger, this problem gets worse and worse and worse. Be careful of it!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="outline-container-orgc915b38" class="outline-2">
+        <h2 id="orgc915b38">Exceptions</h2>
+        <div class="outline-text-2" id="text-orgc915b38">
+          <p>
+            You've almost certainly hit exceptions before. Exceptions are how python &#x2013; and
+            many, many other languages &#x2013; think about <i>errors</i> and error handling. They very
+            often have the word "error" or "exception" in the name. For instance, in our
+            discussion of <a href="#org55cea46">Multiple Inheritance</a>, we encountered an <code>AttributeError</code>, which
+            happens when you attempt to access an atribute of an object that doesn't exist.
+          </p>
+
+          <p>
+            Language: exceptions are either <i>raised</i> or <i>thrown</i> when they are created, and
+            <i>caught</i> when they are received within code. An exception <i>doesn't necessarily have
+              to crash your program</i>, but it often will, and should. To handle exceptions,
+            python uses the (very common) notion of a <i>try</i> block, which is created with the
+            keyword &#x2013; wait for it &#x2013; <code>try</code>.
+          </p>
+
+          <p>
+            First, an uncaught exception:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">def crasher():
+              raise RuntimeError()
+
+              crasher()
+            </pre>
+          </div>
+
+          <p>
+            This simply wont run &#x2013; it just asplodes every time. Which is, in all honesty,
+            not a bad thing to have happen with an exception. A very common thing to need to
+            do, however, is to provide some kind of output about the exception and take some
+            form of emergency action &#x2013; exiting with an appropriate status code, for
+            instance. For this, we can use a <code>try</code>:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">def crasher():
+              raise RuntimeError('OH YEAH!')
+
+              def elegant_crasher():
+              try:
+              crasher()
+              except RuntimeError as e:
+              print("Oh no.")
+              print(e)
+
+              elegant_crasher()
+            </pre>
+          </div>
+
+          <pre class="example">
+            Oh no.
+            OH YEAH!
+
+          </pre>
+
+          <p>
+            There's a series of things to note here. First, we can have as many <code>except</code>
+            clauses as we like, each handling a different exception or set of exceptions &#x2013;
+            we can also have a final catch-all that handles any exceptions we didn't think
+            of. Also note that we can provide helpful error messages when we raise
+            exceptions &#x2013; this is a very good practice indeed. Nothing ruins a day quite
+            like hitting some garbage like:
+          </p>
+
+          <pre class="example">
+            IncomprehensibleException: a bad is there. No I don't know where. Stop asking.
+          </pre>
+
+          <p>
+            Just to give a clear example of handling Lots of Bads, we could have something
+            like:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">def foo(arg):
+              try:
+              db_conn = db.get_connection()
+              db.query(arg)
+              except ConnectionError:
+              print('Arg, failed to connect to the db')
+              return None
+              except ValueError, KeyError:  # This'll catch either of these errors
+              print('DB failed to find what we need somehow for arg {}'.format(arg))
+              except Exception as e:  # This case catches anything we haven't anticipated
+              print('There was a bad!')
+              print(e)
+            </pre>
+          </div>
+
+          <p>
+            Now, let's imagine that there is, in fact, no exception! In that case, our <code>try</code>
+            block skips straight over the <code>except</code> clauses.
+          </p>
+        </div>
+
+        <div id="outline-container-org0bcca14" class="outline-3">
+          <h3 id="org0bcca14">A Thing To Seriously Avoid</h3>
+          <div class="outline-text-3" id="text-org0bcca14">
+            <p>
+              Exceptions and error-handling are very real parts of programming in most
+              languages. And, there are better and worse ways to use them. The very worst is a
+              thing called "control flow by exception". The question you should ask yourself
+              is: "am I using a try/catch block like an if/else?" If you are: stop and
+              reconsider your choices.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="outline-container-org7347e28" class="outline-2">
+        <h2 id="org7347e28">Tuple Destructuring</h2>
+        <div class="outline-text-2" id="text-org7347e28">
+          <p>
+            Here's a handy trick: python functions can return multiple values, which python
+            can then "unpack" in to multiple variables.
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">def return_many():
+              return 'cat', 'dog', 'horse'
+
+
+              first_thing, second_thing, third_thing = return_many()
+
+              print(first_thing)
+              print(third_thing)
+            </pre>
+          </div>
+
+          <pre class="example">
+            cat
+            horse
+
+          </pre>
+        </div>
+      </div>
+
+      <div id="outline-container-orgd0d1b03" class="outline-2">
+        <h2 id="orgd0d1b03">String Formatting</h2>
+        <div class="outline-text-2" id="text-orgd0d1b03">
+          <p>
+            Python's docs refer to the string formatting system as a "mini language". This
+            is&#x2026; not great news. The docs aren't great either. Or rather &#x2013; they're so
+            abstruse as to be nearly useless.
+          </p>
+
+          <p>
+            So, point the first: for a handy string format reference, check out
+            <a href="https://pyformat.info/">https://pyformat.info/</a>
+          </p>
+
+          <p>
+            The string format method lets us do a lot of handy stuff. Here's a short
+            once-over:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">print('Format fills in {} with {}'.format('curly braces', 'words'))
+            </pre>
+          </div>
+
+          <pre class="example">
+            Format fills in curly braces with words
+
+          </pre>
+
+          <div class="org-src-container">
+            <pre class="src src-python">print('Words can be {verb} into position using {modifier} arguments; the {modifier} arguments can be repeated'.format(modifier='named or keyword', verb='put'))
+            </pre>
+          </div>
+
+          <pre class="example">
+            Words can be put into position using named or keyword arguments; the named or keyword arguments can be repeated
+
+          </pre>
+
+          <div class="org-src-container">
+            <pre class="src src-python">print('Places can also be {0} and used as {1} args, even repeated so long as they are {0}'.format('numbered', 'positional'))
+            </pre>
+          </div>
+
+          <pre class="example">
+            Places can also be numbered and used as positional args, even repeated so long as they are numbered
+
+          </pre>
+
+          <p>
+            Need to print actual {}s? Escape them with a second set of {}:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">print('Here are some curly braces: {{}}. Also, here is a {}'.format('cow.'))
+            </pre>
+          </div>
+
+          <pre class="example">
+            Here are some curly braces: {}. Also, here is a cow.
+
+          </pre>
+
+          <p>
+            String formatting can format damn near anything &#x2013; it's seriously ridiculously
+            powerful. Which also means I have to always look it up. You might too. Remember:
+            <a href="https://pyformat.info">https://pyformat.info</a>. Good stuff.
+          </p>
+
+          <p>
+            A closing example: formatting long numbers with thousands-place commas:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">print('{:,}'.format(1239085830383))
+            </pre>
+          </div>
+
+          <pre class="example">
+            1,239,085,830,383
+
+          </pre>
+
+          <p>
+            wow
+          </p>
+        </div>
+      </div>
+
+      <div id="outline-container-org37dd803" class="outline-2">
+        <h2 id="org37dd803">Context Managers</h2>
+        <div class="outline-text-2" id="text-org37dd803">
+          <p>
+            Context managers are a clean way of expressing this pattern:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">open_file = open(path, 'r')
+
+              lines_of_file = open_file.readlines()
+
+              open_file.close()
+            </pre>
+          </div>
+
+          <p>
+            We have some resource &#x2013; a file, a database, a URL &#x2013; which we want to open,
+            interact with, and then close. To provide for this, python provides a mechanism
+            called a <i>context manager</i>, and they are neat as heck. Context managers use the
+            keyword <code>with</code>, and have the general form <code>with resource_name</code>; optionally, you can
+            bind your new resource to an alias using <code>as alias</code>. It looks like this:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">with open(file_path, 'r') as file_handle:
+              lines = file_handle.readlines()
+            </pre>
+          </div>
+
+          <p>
+            Python will handle making sure our resource is closed when execution leaves the
+            <code>with</code> block.
+          </p>
+        </div>
+      </div>
+
+      <div id="outline-container-org0df77bc" class="outline-2">
+        <h2 id="org0df77bc">Pythonisms and "magic methods"</h2>
+        <div class="outline-text-2" id="text-org0df77bc">
+          <p>
+            We've seen a lot of things wrapped in "double underbars" &#x2013; often written
+            <i>dunderbars</i> &#x2013; go by. Dunderbars are used to denote identifiers and method names
+            of special significance to python itself. These methods, sometimes called "magic
+            methods", are part of the neat internal glue that makes python work coherently.
+            Many of the magic methods, as the name suggests, are attached to classes. For
+            instance, <code>__init__</code> is a special method that tells python how to construct a new
+            instance of a class.
+          </p>
+
+          <p>
+            Let's look at the <code>__str__</code> and <code>__repr__</code> methods with a motivating example.
+            Imagine we have this class, and try to "see" it with two different kinds of
+            printing:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">class PrintingDemo:
+              name = "The Printing Demo"
+
+              demo = PrintingDemo()
+
+              print(demo)
+              print('{!r}'.format(demo))
+            </pre>
+          </div>
+
+          <pre class="example">
+            &lt;__main__.PrintingDemo instance at 0x10d8280e0&gt;
+            &lt;__main__.PrintingDemo instance at 0x10d8280e0&gt;
+
+          </pre>
+
+          <p>
+            Blah! Both useless. When we print it, implicitly casting to string, we get the
+            memory address of the instance; when we try to format it using its <code>__repr__</code>
+            method, we&#x2026; still just get the memory address of the instance. We can fix
+            this:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">class PrintingDemo:
+              name = "The Printing Demo"
+
+              def __str__(self):
+              return 'Hello, my name is {name}'.format(name=self.name)
+
+              def __repr__(self):
+              return '&lt;PrintingDemo name={name}&gt;'.format(name=self.name)
+
+              demo = PrintingDemo()
+
+              print(demo)
+              print('{!r}'.format(demo))
+            </pre>
+          </div>
+
+          <pre class="example">
+            Hello, my name is The Printing Demo
+            &lt;PrintingDemo name=The Printing Demo&gt;
+
+          </pre>
+
+          <p>
+            Much better.
+          </p>
+
+          <p>
+            What if we want to know if two <code>PrintingDemo</code> objects are the same?
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">class PrintingDemo:
+              name = "The Printing Demo"
+
+              def __str__(self):
+              return 'Hello, my name is {name}'.format(name=self.name)
+
+              def __repr__(self):
+              return '&lt;PrintingDemo name={name}&gt;'.format(name=self.name)
+
+
+              demo1 = PrintingDemo()
+              demo2 = PrintingDemo()
+
+              print(demo1 == demo2)
+            </pre>
+          </div>
+
+          <pre class="example">
+            False
+
+          </pre>
+
+          <p>
+            Right now, all python can do is glance at the memory address and say, "different
+            addresses, different objects, not equal". We can fix it by defining the <code>__eq__</code>
+            and <code>__ne__</code> methods:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">class PrintingDemo:
+              name = "The Printing Demo"
+
+              def __str__(self):
+              return 'Hello, my name is {name}'.format(name=self.name)
+
+              def __repr__(self):
+              return '&lt;PrintingDemo name={name}&gt;'.format(name=self.name)
+
+              def __eq__(self, other):
+              return self.name == other.name
+
+              def __ne__(self, other):
+              return not self.__eq__(other)
+
+              demo1 = PrintingDemo()
+              demo2 = PrintingDemo()
+
+              print(demo1 == demo2)
+            </pre>
+          </div>
+
+          <pre class="example">
+            True
+
+          </pre>
+
+          <p>
+            Yis.
+          </p>
+
+          <p>
+            There are&#x2026; a <b>lot</b> of magic methods. As a general rule, if you think, "how do I
+            define &lt;behavior&gt; for my class", the answer is often a magic method. For
+            instance, here's a very very partial list:
+          </p>
+
+          <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+            <colgroup>
+              <col  class="org-left" />
+
+              <col  class="org-left" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col" class="org-left">Method</th>
+                <th scope="col" class="org-left">Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="org-left">__item__</td>
+                <td class="org-left">Handles things like dict[key] retrieval</td>
+              </tr>
+
+              <tr>
+                <td class="org-left">__lt__</td>
+                <td class="org-left">"less than" operator behavior</td>
+              </tr>
+
+              <tr>
+                <td class="org-left">__gt__</td>
+                <td class="org-left">"greater than" operator behavior</td>
+              </tr>
+
+              <tr>
+                <td class="org-left">__add__</td>
+                <td class="org-left">plus operator behavior</td>
+              </tr>
+
+              <tr>
+                <td class="org-left">__and__</td>
+                <td class="org-left">Boolean <code>and</code> behavior</td>
+              </tr>
+
+              <tr>
+                <td class="org-left">__or__</td>
+                <td class="org-left">Boolean <code>or</code> behavior</td>
+              </tr>
+
+              <tr>
+                <td class="org-left">__call__</td>
+                <td class="org-left">Allows a class instance to be called as a function</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="outline-container-orgf42d0fc" class="outline-2">
+        <h2 id="orgf42d0fc">Generators</h2>
+        <div class="outline-text-2" id="text-orgf42d0fc">
+          <p>
+            Python has a mechanism you should know about but might not use for a while. The
+            mechanism is called <i>generators</i>. Let's consider a motivating problem.
+          </p>
+
+          <p>
+            Say you wanna count all the lines in a file that have the word "http" in them.
+            Our file &#x2013; we'll call it <code>somefile.txt</code> &#x2013; is small. The regular approach would
+            look like this:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">path = '/path/to/somefile.txt'
+
+              with open(path, 'r') as h:
+              lines = h.readlines()
+              matching = [line for line in lines if 'http' in line]
+
+              print(len(matching))
+            </pre>
+          </div>
+
+          <p>
+            This approach works by reading the entire file in to memory, then counting all
+            the lines. This works just great for small files. In fact, it works great as
+            long as the file is small enough to fit in to RAM.
+          </p>
+
+          <p>
+            Now, what if the file is 46 gigabytes? We almost certainly don't have that much
+            RAM. What now?
+          </p>
+
+          <p>
+            What if we could efficiently check one line at a time without ever pulling the
+            whole file in to memory? Generators are for exactly this.
+          </p>
+
+          <p>
+            A generator is a special kind of function using the keyword <code>yield</code> instead of
+            <code>return</code>. Python sees this keyword and converts the function in to a generator. A
+            generator is like a list we can only read once; on every iteration, python calls
+            the function, retrieving the next item.
+          </p>
+
+          <p>
+            It looks like this:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">path = '/path/to/somefile.txt'
+
+              def line_reader():
+              with open(path, 'r') as h:
+              yield h.readline()
+
+              matching = [line for line in line_reader() if 'http' in line]
+            </pre>
+          </div>
+
+          <p>
+            Generators take some work to get our brains around, but they are good when data
+            gets big.
+          </p>
+
+          <p>
+            &#x2026;in fact, they are so good that they are built in to the python file API ;-P
+            You can actually solve the above like so:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">path = '/path/to/somefile.txt'
+
+              with open(path, 'r') as h:
+              matching = [line for line in h]
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="outline-container-org6863651" class="outline-2">
+        <h2 id="org6863651">Decorators</h2>
+        <div class="outline-text-2" id="text-org6863651">
+          <p>
+            Decorators are not likely to be something you'll use a lot any time soon &#x2013; but
+            they come up, and you'll see them out in the world, so you should know what they
+            are. (The place where you're most likely to find them is during testing,
+            particularly with the <code>py.test</code> library.)
+          </p>
+
+          <p>
+            First note: decorators are a design pattern you'll see in more languages than
+            just Python &#x2013; Ruby, in particular, leaps to mind.
+          </p>
+
+          <p>
+            A decorator is an example of a <i>higher-order</i> function. A higher-order function
+            takes a function as one of its arguments. In the decorator pattern, we define a
+            function which we use to "decorate" some number of others, augmenting them with
+            some Extra Behavior. In Python, we do this by defining out decorator, and then
+            using an <code>@</code> when we define the function it should "decorate."
+          </p>
+
+          <p>
+            Here's a 100% contrived example:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">def call_with_5(func):
+
+              def new_func(*args, **kwargs):
+              new_args = args + (5,)
+              func(*new_args, **kwargs)
+              return new_func
+
+              @call_with_5
+              def foo(*args, **kwargs):
+              print(args)
+              print(kwargs)
+
+
+              @call_with_5
+              def bar(the_cow, *args):
+              print(the_cow)
+              if args:
+              print(args)
+
+
+              foo(arg='blerp')
+              bar('here is the cow')
+            </pre>
+          </div>
+
+          <pre class="example">
+            (5,)
+            {'arg': 'blerp'}
+            here is the cow
+            (5,)
+
+          </pre>
+
+          <p>
+            OK so, definitely not the most useful example, but it demonstrates the
+            machinery, which is a combination of many of the elements we've seen:
+          </p>
+
+          <ol class="org-ol">
+            <li>We define a higher-order function, which will take the function we wanna
+              decorate and return a new function with the new behavior.</li>
+            <li>We use <code>*args</code> and <code>**kwargs</code>, because we don't know in advance what arguments
+              our function will be called with &#x2013; and we'd rather not care.</li>
+          </ol>
+
+          <p>
+            We can decorate any number of functions. A decorator captures the notion of
+            wrapping an existing function in a new behavior.
+          </p>
+
+          <p>
+            Now that we've seen the parts, let's consider a vastly more useful example. Say
+            we're writing an application, and we know there exist a set of functions so
+            important that we want to be emailed if they have any problems. Check it out:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">def email_me_if_it_breaks(func):
+              def responder(*args, **kwargs):
+              try:
+              func(*args, **kwags)
+              except Exception as e:
+              email_me(e)
+
+
+              @email_me_if_it_breaks
+              def super_important_func_one():
+              did_it_work = do_the_super_important_thing()
+
+              if not did_it_work:
+              raise RuntimeError('It did not work')
+              else:
+              return did_it_work
+            </pre>
+          </div>
+
+          <p>
+            Any function wrapped like this will email us! Woot. Woot? Woot.
+          </p>
+        </div>
+      </div>
+
+      <div id="outline-container-org9c2dc02" class="outline-2">
+        <h2 id="org9c2dc02">Imports and Modules</h2>
+        <div class="outline-text-2" id="text-org9c2dc02">
+          <p>
+            Let's say you're writing a script that will manipulate many paths to files. You
+            think to yourself, "ah, I know that python has an excellent standard library".
+            You find that there is a thing called <code>os</code> which contains a bunch of path
+            utilities in a thing called <code>path</code>. Good start.
+          </p>
+
+          <p>
+            Let's get some clearer terminology. <code>os</code> is a module. Within <code>os</code> is another module
+            called <code>path</code>. If we want to use it in our code, we can use the keyword <code>import</code>. We
+            can do this a lot of different ways. Lets clarify our example like this: inside
+            the <code>path</code> module is a function called <code>join</code>, which will correctly join elements
+            together with slashes between them to form a valid file path, like this:
+          </p>
+
+          <pre class="example">
+            &gt;&gt;&gt; path.join('/Users', 'gastove', 'Documents')
+            '/Users/gastove/Documents'
+          </pre>
+
+          <p>
+            Let's look at all the ways we can import the <code>join</code> function.
+          </p>
+
+          <p>
+            First, we can import <code>os</code> and fully qualify the whole name:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">import os
+
+              joined = os.path.join('/Users', 'gastove', 'Documents')
+              print(joined)
+            </pre>
+          </div>
+
+          <pre class="example">
+            /Users/gastove/Documents
+
+          </pre>
+
+          <p>
+            That's great, but a bit clunky. We can use <code>from ... import</code> syntax to bring just
+            the <code>path</code> module in to scope:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">from os import path
+
+              joined = path.join('/Users', 'gastove', 'Documents')
+              print(joined)
+            </pre>
+          </div>
+
+          <pre class="example">
+            /Users/gastove/Documents
+
+          </pre>
+
+          <p>
+            Also great. If we're really sure we only want the <code>join</code> function, we can import
+            only it using the same syntax:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">from os.path import join
+
+              joined = join('/Users', 'gastove', 'Documents')
+              print(joined)
+            </pre>
+          </div>
+
+          <pre class="example">
+            /Users/gastove/Documents
+
+          </pre>
+
+          <p>
+            Imagine we've already got a function called <code>join</code>, and we don't want the names to
+            collide. We can alias anything we import using <code>as</code>:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">from os.path import join as path_join
+
+              joined = path_join('/Users', 'gastove', 'Documents')
+              print(joined)
+            </pre>
+          </div>
+
+          <pre class="example">
+            /Users/gastove/Documents
+
+          </pre>
+
+          <p>
+            Perhaps we actually want to import several things? We can do that too. As the
+            list gets longer, it's much easier to read if we use a set of parens and some
+            newlines:
+          </p>
+
+          <div class="org-src-container">
+            <pre class="src src-python">from os.path import (
+              abspath as absolute_path,
+              exists,
+              expanduser
+              )
+            </pre>
+          </div>
+        </div>
+
+        <div id="outline-container-orgda1d6bf" class="outline-3">
+          <h3 id="orgda1d6bf">Modules</h3>
+          <div class="outline-text-3" id="text-orgda1d6bf">
+            <p>
+              Okay so: we can import things. Good! <code>os</code> is part of the python standard library.
+              But what if we want to import code we wrote ourselves? What then?
+            </p>
+
+            <p>
+              The rules go like this:
+            </p>
+
+            <p>
+              First: if two files are in the same directory, one can import from another
+            </p>
+
+            <p>
+              If we have a file, <code>/tmp/demo/one.py</code>:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">def foo():
+                return 'foo'
+              </pre>
+            </div>
+
+            <p>
+              And a second file, <code>/tmp/demo/two.py</code>:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-python">import one
+
+                print(one.foo())
+              </pre>
+            </div>
+
+            <p>
+              We're all set &#x2013; nothing special need me done.
+            </p>
+
+            <p>
+              Imagine now, however, we have a directory we want to put files in,
+              <code>/tmp/demo/baz/</code>. To be able to import from the <code>baz</code> directory, we must make it in
+              to a module. Don't worry! Making a module is not hard. We simply add a file
+              named <code>__init__.py</code> to the directory that should now be importable. Our
+              demonstration dirs should now look like this:
+            </p>
+
+            <div class="org-src-container">
+              <pre class="src src-sh">tree /tmp/demo
+              </pre>
+            </div>
+
+            <pre class="example">
+              /tmp/demo [error opening dir]
+
+              0 directories, 0 files
+
+            </pre>
+
+            <p>
+              We can now import <code>baz</code> in to <code>one.py</code> and <code>two.py</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="outline-container-org83d1196" class="outline-2">
+        <h2 id="org83d1196">Project Structure</h2>
+      </div>
+      <div id="footnotes">
+        <h2 class="footnotes">Footnotes: </h2>
+        <div id="text-footnotes">
+
+          <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+                The key of a <code>dict</code> can be any <i>hashable</i> type. What types are hashable, you ask?
+                Well: any of the primitive types, as well as any class defining the <code>__hash__</code>
+                trait. Overwhelmingly, the most common thing to use as the key of a <code>dict</code> is a
+                string. But note: we can also use a <code>tuple</code>, as long as all the elements inside
+                are themselves hashable.
+          </p></div></div>
+
+          <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+                We'll cover instance methods in <a href="#orge5b3fda">Classes</a>.
+          </p></div></div>
+
+          <div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+                We'll cover the exception to this when we talk about <a href="#orgf42d0fc">Generators</a>
+          </p></div></div>
+
+          <div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+                Note however that is-a relationships are importantly one-way &#x2013; a <code>Vehicle</code>
+                is <b>not</b> a <code>Car</code>.
+          </p></div></div>
+
+          <div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"><p class="footpara">
+                Multiple inheritance is an attempt to solve the same problem languages
+                like Java solve with a technique called <i>interfaces</i>. Alas: interfaces are vastly
+                superior. So it goes.
+          </p></div></div>
+
+
+        </div>
+    </div></div>
+    <div id="postamble" class="status">
+      <p class="author">Author: Ross Donaldson</p>
+      <p class="date">Created: 2017-05-16 Tue 20:59</p>
+      <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+    </div>
+  </body>
+</html>
