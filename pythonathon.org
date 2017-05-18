@@ -1337,7 +1337,7 @@ hierarchy with shared properties.
 
 Behold, inheritance:
 
-#+BEGIN_SRC python :eval never
+#+BEGIN_SRC python
   class Vehicle():
       wheels = 0
       has_engine = True
@@ -1491,7 +1491,7 @@ instance. For this, we can use a ~try~:
           crasher()
       except RuntimeError as e:
           print("Oh no.")
-          print(e)
+          raise e
 
   elegant_crasher()
 #+END_SRC
