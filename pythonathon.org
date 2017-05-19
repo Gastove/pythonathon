@@ -1,15 +1,5 @@
 #+PROPERTY: header-args        :exports both :results output
 
-* TODO In progress
-
-** DONE List comprehensions
-
-** DONE Namespaces and Imports
-
-** TODO Decorators
-
-** TODO Project Structure
-
 * What Even
 Some of us are born to python, some rise to python, and others have python
 thrust upon 'em. Let's learn you a python.
@@ -1921,10 +1911,11 @@ important that we want to be emailed if they have any problems. Check it out:
   def email_me_if_it_breaks(func):
       def responder(*args, **kwargs):
           try:
-              func(*args, **kwags)
+              func(*args, **kwargs)
           except Exception as e:
               email_me(e)
 
+      return responder
 
   @email_me_if_it_breaks
   def super_important_func_one():
@@ -2167,7 +2158,7 @@ like relative file paths, because in some sense, they are:
 
 #+BEGIN_SRC python :eval never
 # We are in poot.py
-from ../module_two import scoot
+from ../module_one import scoot
 #+END_SRC
 
 My usual habit is this: if I'm importing one module in to the other, I use
