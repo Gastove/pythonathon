@@ -1,15 +1,5 @@
 #+PROPERTY: header-args        :exports both :results output
 
-* TODO In progress
-
-** DONE List comprehensions
-
-** DONE Namespaces and Imports
-
-** TODO Decorators
-
-** TODO Project Structure
-
 * What Even
 Some of us are born to python, some rise to python, and others have python
 thrust upon 'em. Let's learn you a python.
